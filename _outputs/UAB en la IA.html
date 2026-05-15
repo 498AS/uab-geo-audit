@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ca"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UAB en la IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./UAB en la IA_files/base.css">
+  <link rel="stylesheet" href="./UAB en la IA_files/components.css">
+  <link rel="stylesheet" href="./UAB en la IA_files/theme-light.css">
+  <link rel="stylesheet" href="./UAB en la IA_files/components-extended.css">
+  <style>
+    /* UAB overrides — verd corporatiu */
+    :root {
+      --uab-green: #006935;
+      --uab-green-dark: #005028;
+      --uab-green-light: rgba(0,105,53,0.08);
+    }
+    [data-brand="uab"] {
+      --primary: #006935;
+      --primary-dark: #005028;
+      --accent: #006935;
+      --warning: #006935;
+    }
+    .deck__logo--wordmark {
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--uab-green) !important;
+      text-transform: uppercase;
+    }
+    .cover-slide--summa .cover-title { color: #111; }
+    .cover-slide--summa .cover-badge { background: var(--uab-green); color: #fff; }
+    .summary-logo, .summary-rank-fill { background: var(--uab-green) !important; }
+    .summary-rank-row.is-top .summary-rank-fill,
+    .bis-mini-fill--top,
+    .service-cmp-fill--summa { background: var(--uab-green) !important; }
+    .service-cmp-fill--comp { background: #111 !important; }
+    .service-cmp-fill--low { background: #d4d0c8 !important; }
+    .summary-reco-value { color: var(--uab-green) !important; }
+    .big-number.positive { color: var(--uab-green); }
+    .big-number.negative { color: #dc2626; }
+    .insight--positive { background: rgba(0,105,53,0.05); border-color: rgba(0,105,53,0.25); }
+    .insight--negative { background: rgba(220,38,38,0.05); border-color: rgba(220,38,38,0.25); }
+    .insight--warning { background: rgba(217,119,6,0.05); border-color: rgba(217,119,6,0.25); }
+    .insight--inverse { background: #0F1F15; color: #f5f1ea; border: none; }
+    .insight--inverse .insight-text { color: #f5f1ea; }
+    .verbatim-source { font-size: 10px; margin-top: 8px; opacity: 0.8; }
+    .funnel-svg polygon:nth-child(3) { fill: var(--uab-green) !important; }
+    .finding-icon.success { color: var(--uab-green); background: rgba(0,105,53,0.08); }
+    .finding-icon.critical { color: #dc2626; background: rgba(220,38,38,0.08); }
+    .finding-icon.warning { color: #d97706; background: rgba(217,119,6,0.08); }
+    .uab-shield {
+      display:inline-flex; align-items:center; gap:6px;
+      font-family:"Inter",sans-serif; font-weight:800; letter-spacing:1px;
+      color:#fff; background:var(--uab-green); padding:6px 12px; border-radius:6px;
+      font-size:13px; text-transform:uppercase;
+    }
+  </style>
+</head>
+<body data-brand="uab" data-theme="light" data-deck-style="summa-editorial" data-deck-transition="slide" data-deck-mode="slides">
+  <main class="deck">
+    <header class="deck__header">
+      <div class="deck__title">
+        <div class="deck__h1">UAB en la IA</div>
+        <div class="deck__h2">Auditoria GEO · Març 2026</div>
+      </div>
+      <div class="deck__logo deck__logo--wordmark" aria-label="UAB">UAB</div>
+    </header>
+
+    <section class="slides">
+
+<!-- ============================================================ -->
+<!-- SLIDE 1: COVER                                                -->
+<!-- ============================================================ -->
+<article class="slide active" data-section="Portada" data-title="Cover">
+  <div class="slide-content cover-slide cover-slide--summa">
+    <div class="cover-topline">
+      <div class="cover-badge">Auditoria GEO · Març 2026</div>
+    </div>
+
+    <div class="cover-hero">
+      <div class="cover-headline-block">
+        <h1 class="cover-title">UAB<br>EN LA IA</h1>
+        <p class="cover-subtitle">
+          Dos motors. 10.955 respostes. El millor BIS del sistema universitari espanyol.
+          <span class="cover-subtitle-insight">La IA ja us situa #1 — en ambdós motors, en totes les línies, en tots els perfils. El següent pas és ampliar la distància.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-metrics cover-metrics--2up">
+        <div class="cover-metric">
+          <div class="cover-metric-value">45.3</div>
+          <div class="cover-metric-kpi">BIS global</div>
+          <div class="cover-metric-meta">#1 sector · 4.6 punts sobre la mitjana top 10</div>
+        </div>
+        <div class="cover-metric">
+          <div class="cover-metric-value">54.9%</div>
+          <div class="cover-metric-kpi">SOBV</div>
+          <div class="cover-metric-meta">#1 sector · més de la meitat de les respostes amb universitats</div>
+        </div>
+      </div>
+
+      <div class="cover-meta">
+        ChatGPT · Gemini · 8 PERSONES · 6 LÍNIES DE SERVEI · 10 COMPETIDORS
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 2: METODOLOGIA                                          -->
+<!-- ============================================================ -->
+<article class="slide" data-section="El Context" data-title="Metodologia">
+  <div class="slide-content">
+    <h2>Metodologia</h2>
+    <p class="p" style="margin-bottom: 24px;">GEO (Generative Engine Optimization) estudia com apareixen les marques a les respostes d'IA. Quan un estudiant pregunta a ChatGPT "on estudio Veterinària" o un investigador busca on fer recerca, la resposta defineix la consideració. Cap dels nostres prompts no menciona la UAB: quan surt, és perquè la IA l'ha triat.</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Respostes</div>
+        <div class="metric-value">10.955</div>
+        <div class="metric-desc">ChatGPT 5.478 + Gemini 5.477</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Persones</div>
+        <div class="metric-value">8</div>
+        <div class="metric-desc">Perfils simulats</div>
+        <div class="metric-tags">
+          <span class="metric-chip">Batxillerat 17-18</span>
+          <span class="metric-chip">Graduat màster</span>
+          <span class="metric-chip">Estudiant internacional</span>
+          <span class="metric-chip">Investigador 30-50</span>
+          <span class="metric-chip">Pare/mare inclusivitat</span>
+          <span class="metric-chip">Empleat formació</span>
+          <span class="metric-chip">RRHH empresa</span>
+          <span class="metric-chip">Genèric</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Línies de servei</div>
+        <div class="metric-value">6</div>
+        <div class="metric-desc">Graus · Recerca · Internacional · Campus · Postgrau · Formació contínua</div>
+      </div>
+    </div>
+    <div class="cols cols--equal" style="margin-top: 24px; gap: 16px;">
+      <div class="card card--bordered" style="padding: 16px;">
+        <div class="card__title">Awareness · Descobriment</div>
+        <p class="p" style="font-size: 12px;">"Millors universitats d'Espanya", "universitats de recerca a Catalunya", "on estudiar a Barcelona".</p>
+        <div class="funnel-example">
+          <div class="funnel-example__q">Prompt real: "Quines universitats destaquen en captació de projectes Horizon Europe a Espanya?"</div>
+          <div class="funnel-example__a">Gemini: "La Universitat Autònoma de Barcelona (UAB) destaca en investigació i innovació, situant-se entre les millors universitats d'Espanya i Europa."</div>
+        </div>
+      </div>
+      <div class="card card--bordered" style="padding: 16px;">
+        <div class="card__title">Consideration · Comparació</div>
+        <p class="p" style="font-size: 12px;">"Diferència entre UAB i UB", "millor universitat per a Veterinària", "UAB vs UPF per Economia".</p>
+        <div class="funnel-example">
+          <div class="funnel-example__q">Prompt real: "Per a un grau en Comunicació Audiovisual, quina universitat triaries a Catalunya pensant en instal·lacions i contactes amb el sector?"</div>
+          <div class="funnel-example__a">ChatGPT: "UAB: La Facultat de Ciències de la Comunicació disposa de quatre platós de televisió, dos estudis de fotografia..."</div>
+        </div>
+      </div>
+      <div class="card card--bordered" style="padding: 16px;">
+        <div class="card__title">Decisió · Recomanació</div>
+        <p class="p" style="font-size: 12px;">"Quina universitat em recomanes per a X", "on fer el doctorat en Y", "millor campus per viure".</p>
+        <div class="funnel-example">
+          <div class="funnel-example__q">Prompt real: "Necessito triar una microcredencial d'habilitats digitals per al meu fill amb ansietat: quines universitats tenen bon acompanyament?"</div>
+          <div class="funnel-example__a">ChatGPT: "Universidad Autónoma de Barcelona (UAB): Ofereix microcredencials. El Servei d'Atenció a l'Estudiant proporciona suport psicològic..."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 3: RESUM EXECUTIU                                       -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Resum Executiu">
+  <div class="slide-content executive-summary-slide">
+    <h2>Resum Executiu</h2>
+
+    <div class="summary-block">
+      <div class="summary-stat-card">
+        <div class="metric-label">BIS global</div>
+        <div class="summary-stat-value">45.3</div>
+        <div class="summary-stat-insight">El més alt del sistema universitari espanyol</div>
+      </div>
+      <div class="summary-ranking-card">
+        <div class="summary-ranking-title">Top 5 sector · BIS global</div>
+        <div class="summary-rank-row is-top">
+          <div class="summary-rank-brand"><span class="summary-logo">U</span> UAB</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:100%;"></div></div>
+          <div class="summary-rank-value">45.3</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">O</span> UOC</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:94.3%;"></div></div>
+          <div class="summary-rank-value">42.7</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">B</span> UB</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:92.3%;"></div></div>
+          <div class="summary-rank-value">41.8</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">C</span> Carlos III</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:91.6%;"></div></div>
+          <div class="summary-rank-value">41.5</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">M</span> UAM</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:90.5%;"></div></div>
+          <div class="summary-rank-value">41.0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-block">
+      <div class="summary-stat-card">
+        <div class="metric-label">SOBV</div>
+        <div class="summary-stat-value">54.9%</div>
+        <div class="summary-stat-insight">Quan la IA cita una universitat, més de la meitat dels cops és la UAB</div>
+      </div>
+      <div class="summary-ranking-card">
+        <div class="summary-ranking-title">Top 5 sector · SOBV</div>
+        <div class="summary-rank-row is-top">
+          <div class="summary-rank-brand"><span class="summary-logo">U</span> UAB</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:100%;"></div></div>
+          <div class="summary-rank-value">54.9%</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">B</span> UB</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:94.9%;"></div></div>
+          <div class="summary-rank-value">52.1%</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">C</span> UPC</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:63.6%;"></div></div>
+          <div class="summary-rank-value">34.9%</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">F</span> UPF</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:55.0%;"></div></div>
+          <div class="summary-rank-value">30.2%</div>
+        </div>
+        <div class="summary-rank-row">
+          <div class="summary-rank-brand"><span class="summary-logo">M</span> UAM</div>
+          <div class="summary-rank-bar"><div class="summary-rank-fill" style="width:53.0%;"></div></div>
+          <div class="summary-rank-value">29.1%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-block summary-block--insight-only">
+      <div>
+        <div class="insight insight--inverse">
+          <div class="insight-text">La UAB no té un problema de visibilitat — té una oportunitat de diferenciació. La IA ja us coneix i en parla bé. Però la distància vs UB és de 4 punts, no de 15. I hi ha actius potents (Sincrotró ALBA, Veterinària top 31, campus integrat) que la IA gairebé no menciona. <strong>Aquí és on podeu ampliar la distància.</strong></div>
+        </div>
+        <div class="summary-reco-callout">
+          <div class="summary-reco-value">+24%</div>
+          <div class="summary-reco-label">AAS vs UB</div>
+          <div class="summary-reco-desc">2.614 mencions d'autoritat acadèmica vs 2.098 de la UB. En RVI (recerca) la distància és de +53% i en IMS (mobilitat internacional) de +68%. Els KPIs sectorials Education amplifiquen el lideratge més que el BIS genèric.</div>
+        </div>
+      </div>
+      <div class="summary-examples">
+        <div class="verbatim summary-verbatim">
+          <p><strong>Lideratge confirmat · BIS 93 · Gemini.</strong></p>
+          <p><span class="summary-key">Prompt</span>"Entre universitats públiques i privades a Barcelona, quines posen més facilitats de calendari per a estudiants que treballen?"</p>
+          <p><span class="summary-key">Resposta</span>"La UAB destaca en investigació i innovació, situant-se entre les millors universitats d'Espanya i Europa. Segons el QS World University Rankings: Europe 2026, ocupa la posició 68 a Europa i la segona a Espanya."</p>
+        </div>
+        <div class="verbatim summary-verbatim">
+          <p><strong>Oportunitat invisible · Sincrotró ALBA: 3 mencions.</strong></p>
+          <p><span class="summary-key">Context</span>La major infraestructura científica d'Espanya, a 5 minuts del campus. Tres mencions a ChatGPT.</p>
+          <p><span class="summary-key">Lectura</span>Falta contingut que connecti ALBA amb la UAB de forma explícita. Gap més clar de tot l'estudi i el més fàcil de resoldre.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 4: BIS DESGLOSSAT                                       -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Qualitat i domini del sector: BIS">
+  <div class="slide-content">
+    <h2>Qualitat i domini del sector: BIS</h2>
+    <div class="insight" style="margin-bottom: 24px;">
+      <p class="insight__text">La UAB lidera el sistema universitari espanyol amb un BIS de 47.1 a ChatGPT i 43.7 a Gemini — per sobre de la UAM (43.9), UB (42.9), UPC (40.5) i UPF (40.1). Quan la IA parla de la UAB, ho fa amb to positiu, la situa a posicions rellevants i la presenta per davant dels competidors. El lideratge es basa en Competitive Score (0.783, el més alt) i Position (0.241), els millors del rànquing.</p>
+    </div>
+    <div class="bis-components-subtitle">De què es compon el BIS?</div>
+    <div class="bis-components-grid">
+      <div class="bis-component-card">
+        <div class="bis-component-header">
+          <div class="bis-component-name">Sentiment</div>
+          <div class="bis-component-weight">30%</div>
+        </div>
+        <div class="bis-component-value bis-component-value--strong">+0.330</div>
+        <div class="bis-component-bar"><div class="bis-component-fill" style="width:66.5%"></div></div>
+        <div class="bis-component-desc">To amb què la IA descriu la UAB. Escala -1 a +1. Un +0.330 (ChatGPT) / +0.369 (Gemini) indica llenguatge clarament positiu — la UAM té millor sentiment (+0.387) però pitjor Position i Competitive.</div>
+        <div class="bis-mini-ranking">
+          <div class="bis-mini-row"><span class="bis-mini-label">UAM</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:100%"></div></div><span class="bis-mini-val">+0.387</span></div>
+          <div class="bis-mini-row bis-mini-row--top"><span class="bis-mini-label">UAB</span><div class="bis-mini-bar"><div class="bis-mini-fill bis-mini-fill--top" style="width:85.2%"></div></div><span class="bis-mini-val">+0.330</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UB</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:84.5%"></div></div><span class="bis-mini-val">+0.327</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPF</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:79.8%"></div></div><span class="bis-mini-val">+0.309</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPC</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:73.6%"></div></div><span class="bis-mini-val">+0.285</span></div>
+        </div>
+      </div>
+      <div class="bis-component-card">
+        <div class="bis-component-header">
+          <div class="bis-component-name">Competitive</div>
+          <div class="bis-component-weight">20%</div>
+        </div>
+        <div class="bis-component-value bis-component-value--accent">0.783</div>
+        <div class="bis-component-bar"><div class="bis-component-fill bis-component-fill--accent" style="width:78.3%"></div></div>
+        <div class="bis-component-desc">Posició relativa enfront d'altres quan apareixen juntes. Quan la IA compara, la UAB tendeix a sortir per davant del 78% dels competidors a la mateixa resposta. <strong>El més alt del sector.</strong></div>
+        <div class="bis-mini-ranking">
+          <div class="bis-mini-row bis-mini-row--top"><span class="bis-mini-label">UAB</span><div class="bis-mini-bar"><div class="bis-mini-fill bis-mini-fill--top" style="width:100%"></div></div><span class="bis-mini-val">0.783</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UB</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:90.8%"></div></div><span class="bis-mini-val">0.711</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UAM</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:90.7%"></div></div><span class="bis-mini-val">0.710</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPC</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:87.9%"></div></div><span class="bis-mini-val">0.688</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPF</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:85.8%"></div></div><span class="bis-mini-val">0.672</span></div>
+        </div>
+      </div>
+      <div class="bis-component-card">
+        <div class="bis-component-header">
+          <div class="bis-component-name">Position</div>
+          <div class="bis-component-weight">25%</div>
+        </div>
+        <div class="bis-component-value bis-component-value--strong">0.241</div>
+        <div class="bis-component-bar"><div class="bis-component-fill" style="width:24.1%"></div></div>
+        <div class="bis-component-desc">Lloc que ocupa dins la resposta. 0.241 indica que la UAB tendeix a aparèixer al primer terç — el millor valor del rànquing (decay logarítmic sobre posició).</div>
+        <div class="bis-mini-ranking">
+          <div class="bis-mini-row bis-mini-row--top"><span class="bis-mini-label">UAB</span><div class="bis-mini-bar"><div class="bis-mini-fill bis-mini-fill--top" style="width:100%"></div></div><span class="bis-mini-val">0.241</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UAM</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:81.3%"></div></div><span class="bis-mini-val">0.196</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UB</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:81.3%"></div></div><span class="bis-mini-val">0.196</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPC</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:73.0%"></div></div><span class="bis-mini-val">0.176</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPF</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:64.3%"></div></div><span class="bis-mini-val">0.155</span></div>
+        </div>
+      </div>
+      <div class="bis-component-card">
+        <div class="bis-component-header">
+          <div class="bis-component-name">Mention</div>
+          <div class="bis-component-weight">25%</div>
+        </div>
+        <div class="bis-component-value bis-component-value--strong">0.218</div>
+        <div class="bis-component-bar"><div class="bis-component-fill" style="width:21.8%"></div></div>
+        <div class="bis-component-desc">Densitat de menció dins cada resposta. Quan la UAB apareix, ocupa més espai que qualsevol competidor — no és una menció de passada.</div>
+        <div class="bis-mini-ranking">
+          <div class="bis-mini-row bis-mini-row--top"><span class="bis-mini-label">UAB</span><div class="bis-mini-bar"><div class="bis-mini-fill bis-mini-fill--top" style="width:100%"></div></div><span class="bis-mini-val">0.218</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UB</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:83.0%"></div></div><span class="bis-mini-val">0.181</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UAM</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:77.1%"></div></div><span class="bis-mini-val">0.168</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPC</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:73.4%"></div></div><span class="bis-mini-val">0.160</span></div>
+          <div class="bis-mini-row"><span class="bis-mini-label">UPF</span><div class="bis-mini-bar"><div class="bis-mini-fill" style="width:65.6%"></div></div><span class="bis-mini-val">0.143</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 5: SOV i SOBV                                           -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Presència i visibilitat: SOV i SOBV">
+  <div class="slide-content">
+    <h2>Presència i visibilitat: SOV i SOBV</h2>
+    <div class="sov-top-layout">
+      <div class="metrics-grid" style="margin-bottom: 20px; grid-template-columns: 1fr; max-width: 320px; margin-top: 0;">
+        <div class="metric-card">
+          <div class="metric-label">SOV global</div>
+          <div class="metric-value" style="color: var(--uab-green);">37.2%</div>
+          <div class="metric-desc">4.076 / 10.955 respostes</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">SOBV (entre marques)</div>
+          <div class="metric-value" style="font-size: 32px; color: var(--uab-green);">54.9%</div>
+          <div class="metric-desc">Quan la IA cita universitats, més de la meitat dels cops surt la UAB</div>
+        </div>
+      </div>
+      <div class="sov-explainer-card">
+        <div class="bis-components-subtitle">SOV vs SOBV — què mesura cadascuna?</div>
+        <div class="sov-explainer-text"><strong>SOV (Share of Voice):</strong> respostes amb UAB / total respostes. "De cada 100 respostes, en quantes surt la UAB".</div>
+        <div class="sov-formula">4.076 respostes amb UAB / 10.955 totals = 37.2%</div>
+        <div class="sov-explainer-text"><strong>SOBV (Share of Branded Voice):</strong> respostes amb UAB / respostes amb alguna universitat. Elimina el soroll de respostes sense cap marca i dóna una imatge més neta del lideratge.</div>
+        <div class="sov-formula">4.076 / ~7.427 respostes amb universitat = 54.9%</div>
+      </div>
+    </div>
+    <div class="cooccurrence-section-title">Duopoli UAB-UB · Top 6 SOBV</div>
+    <div class="cooccurrence-layout">
+      <div class="cooccurrence-donut-wrap">
+        <div class="cooccurrence-donut">
+          <svg viewBox="0 0 42 42" class="donut-svg">
+            <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="#ece8e2" stroke-width="6"></circle>
+            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#006935" stroke-width="6" stroke-dasharray="28 72" stroke-dashoffset="25"></circle>
+            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#1d1d1b" stroke-width="6" stroke-dasharray="26 74" stroke-dashoffset="-3"></circle>
+            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#0EA5E9" stroke-width="6" stroke-dasharray="17 83" stroke-dashoffset="-29"></circle>
+            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#8a8179" stroke-width="6" stroke-dasharray="15 85" stroke-dashoffset="-46"></circle>
+            <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#b7aea6" stroke-width="6" stroke-dasharray="14 86" stroke-dashoffset="-61"></circle>
+          </svg>
+          <div class="cooccurrence-center">
+            <div class="cooccurrence-center-value">14.602</div>
+            <div class="cooccurrence-center-label">Top 6 mencions</div>
+          </div>
+        </div>
+      </div>
+      <div class="cooccurrence-legend">
+        <div class="cooccurrence-item"><span class="cooccurrence-dot" style="background:#006935"></span><span class="cooccurrence-name">UAB · 54.9%</span><span class="cooccurrence-meta">4.076 resp · líder SOBV del sector</span></div>
+        <div class="cooccurrence-item"><span class="cooccurrence-dot" style="background:#1d1d1b"></span><span class="cooccurrence-name">UB · 52.1%</span><span class="cooccurrence-meta">3.870 resp · competidor directe</span></div>
+        <div class="cooccurrence-item"><span class="cooccurrence-dot" style="background:#0EA5E9"></span><span class="cooccurrence-name">UPC · 34.9%</span><span class="cooccurrence-meta">2.591 resp · gap de 20 punts</span></div>
+        <div class="cooccurrence-item"><span class="cooccurrence-dot" style="background:#8a8179"></span><span class="cooccurrence-name">UPF · 30.2%</span><span class="cooccurrence-meta">2.244 resp</span></div>
+        <div class="cooccurrence-item"><span class="cooccurrence-dot" style="background:#b7aea6"></span><span class="cooccurrence-name">UAM / Complutense</span><span class="cooccurrence-meta">29.1% / 27.0%</span></div>
+      </div>
+    </div>
+    <div class="insight" style="margin-top: 18px;">
+      <p class="insight__text"><strong>Un SOV del 37% és excepcional.</strong> En estudis sectorials de marques comercials, el SOV sol moure's en franges del 2-12%. Que la UAB aparegui al 37% de les respostes la situa com un actor central del sistema universitari. <strong>El SOBV (54.9%) confirma el duopoli amb la UB i l'amplifica:</strong> quan la IA esmenta una universitat, en més de la meitat dels casos és la UAB. El gap amb la 3a posició (UPC 34.9%) és de 20 punts — un duopoli inqüestionable.</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 6: SENSE GAP DE RECOMANACIÓ                             -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Sense gap de recomanació">
+  <div class="slide-content">
+    <h2>El (no) Gap de Recomanació</h2>
+    <p class="p" style="margin-bottom: 20px;">La dada més rara de l'estudi: a diferència del que sol passar en altres sectors, la UAB <strong>no perd qualitat de presència</strong> quan la IA ha de passar de comparar a recomanar. El BIS és estable o creix entre etapes.</p>
+    <div class="cols cols--equal" style="margin-bottom: 20px; gap: 32px;">
+      <div>
+        <div style="font-size: 11px; letter-spacing: 2px; opacity: 0.5; margin-bottom: 12px;">QUAN LA IA CONSIDERA</div>
+        <div class="big-number positive" style="font-size: 72px;">47.7</div>
+        <p class="p" style="margin-top: 8px;">BIS en consideration. 775 respostes a ChatGPT. Punt més alt del funnel. La IA refina i la UAB puja.</p>
+        <div class="insight insight--positive" style="margin-top: 16px;">
+          <p class="insight__text"><strong>Aquí guanya la UAB.</strong> Quan algú compara universitats (UAB vs UB, UAB vs UPF), la UAB té el millor competitive score del sector — quan baixa el nombre de competidors, el seu BIS puja per pur efecte mecànic, però també per mèrits.</p>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; letter-spacing: 2px; opacity: 0.5; margin-bottom: 12px;">QUAN LA IA RECOMANA</div>
+        <div class="big-number positive" style="font-size: 72px;">47.6</div>
+        <p class="p" style="margin-top: 8px;">BIS en decisió. 764 respostes a ChatGPT. Cap caiguda. Es manté pràcticament igual que en consideration.</p>
+        <div class="insight insight--positive" style="margin-top: 16px;">
+          <p class="insight__text"><strong>Aquí és on altres marques cauen.</strong> En estudis sectorials, el BIS sol caure 25-30 punts entre comparació i recomanació. La UAB es manté. Quan la IA ha de recomanar, no perd confiança.</p>
+        </div>
+      </div>
+    </div>
+    <div class="insight insight--inverse">
+      <div class="insight-text">BIS funnel UAB: <strong>45.3 (awareness) → 47.7 (consideration) → 47.6 (decisió)</strong>. Patró ascendent i estable. La IA no només us coneix — us recomana amb la mateixa convicció amb què us compara. Implicació: la UAB té contingut de "per què triar-nos" tan robust com el de "qui som". Aquest és un actiu rar i defensiu.</div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 7: ON GUANYA I ON PERD                                  -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="On guanya i on perd">
+  <div class="slide-content">
+    <h2>On guanya i on perd la UAB</h2>
+    <div class="cols cols--equal" style="gap: 24px;">
+      <div>
+        <div style="font-size: 11px; letter-spacing: 2px; opacity: 0.5; margin-bottom: 12px;">ON GUANYA</div>
+        <div class="verbatim" style="margin-bottom: 12px;">
+          <div class="verbatim-question">"Necessito triar ràpidament una microcredencial d'habilitats digitals per al meu fill amb ansietat: quines universitats tenen bon acompanyament?"</div>
+          <strong>ChatGPT:</strong> "<strong>Universidad Autónoma de Barcelona (UAB):</strong> Ofereix microcredencials en àrees com l'ús de la intel·ligència artificial. El seu <strong>Servei d'Atenció a l'Estudiant</strong> proporciona <strong>suport psicològic i orientació personalitzada</strong> per a estudiants amb necessitats especials."
+          <div class="verbatim-source" style="color: var(--uab-green);">Pare/mare inclusivitat · BIS 93 · Position 1 · La IA recomana la UAB de primera citant serveis concrets. Dada provinent d'uab.cat.</div>
+        </div>
+        <div class="verbatim">
+          <div class="verbatim-question">"Per a un grau en Comunicació Audiovisual, quina universitat triaries a Catalunya pensant en instal·lacions i contactes amb el sector?"</div>
+          <strong>ChatGPT:</strong> "<strong>UAB:</strong> La Facultat de Ciències de la Comunicació disposa de <strong>quatre platós de televisió, dos estudis de fotografia, un plató de croma, cinc estudis de ràdio, tres estudis de continuïtat d'àudio, deu sales d'edició</strong>..."
+          <div class="verbatim-source" style="color: var(--uab-green);">Estudiant batxillerat · BIS alt · Decisió · Les dades concretes provenen d'uab.cat. La web pròpia alimenta directament les recomanacions.</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; letter-spacing: 2px; opacity: 0.5; margin-bottom: 12px;">ON PERD</div>
+        <div class="verbatim" style="margin-bottom: 12px; border-color: rgba(220,38,38,0.3);">
+          <div class="verbatim-question">"Quines universitats a Catalunya tenen el campus més ben connectat amb transport públic, sobretot per als que fan màster i surten tard al vespre?"</div>
+          <strong>ChatGPT:</strong> "<strong>Universidad de Barcelona (UB):</strong> Situada al centre de Barcelona, la UB compta amb múltiples campus ben connectats mitjançant metro, autobús i tramvia..."
+          <div class="verbatim-source" style="color: #dc2626;">Graduat màster · BIS 13 · La UB guanya per ubicació central. La UAB no apareix en primer lloc. Coherent amb les 81-319 mencions de "lluny de Barcelona".</div>
+        </div>
+        <div class="verbatim" style="border-color: rgba(220,38,38,0.3);">
+          <div class="verbatim-question">"Quines universitats a Espanya tenen campus amb pàrquing o facilitats per anar en cotxe/moto, i quines són més complicades per trànsit si surts a les 18h?"</div>
+          <strong>ChatGPT:</strong> "<strong>Universidad Rey Juan Carlos (Campus de Fuenlabrada):</strong> Compta amb un ampli aparcament... <strong>Universidad de Barcelona (UB):</strong> situada al centre de Barcelona..."
+          <div class="verbatim-source" style="color: #dc2626;">Empleat formació · BIS 13 (el més baix de l'estudi) · En consultes sobre accessibilitat en vehicle, la UAB perd contra campus urbans o amb pàrquing fàcil.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 8: FUNNEL                                               -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Funnel">
+  <div class="slide-content">
+    <h2>Funnel: Awareness · Consideration · Decisió</h2>
+    <p class="p" style="margin-bottom: 16px;">El SOV puja de 25% en awareness a 42% en consideration i es manté a 42% en decisió. Quan l'usuari passa de descobrir a comparar i decidir, la UAB <strong>guanya presència</strong>. Patró oposat al d'altres sectors.</p>
+    <div class="funnel-visual">
+      <svg class="funnel-svg" viewBox="0 0 1000 320" preserveAspectRatio="none">
+        <polygon points="0,0 1000,0 920,100 80,100" fill="#111111"></polygon>
+        <polygon points="80,105 920,105 840,210 160,210" fill="#222222"></polygon>
+        <polygon points="160,215 840,215 760,315 240,315" fill="#006935"></polygon>
+      </svg>
+      <div class="funnel-stage-overlay funnel-stage-overlay--1">
+        <div class="funnel-stage-inner">
+          <div class="funnel-stage-left">
+            <div class="funnel-stage-name">Awareness</div>
+            <div class="funnel-stage-bis">BIS 45.3</div>
+          </div>
+          <div class="funnel-stage-right">
+            <div class="funnel-stage-meta">466 resp ChatGPT · 643 resp Gemini · SOV 25.5%</div>
+          </div>
+        </div>
+      </div>
+      <div class="funnel-stage-overlay funnel-stage-overlay--2">
+        <div class="funnel-stage-inner">
+          <div class="funnel-stage-left">
+            <div class="funnel-stage-name">Consideration</div>
+            <div class="funnel-stage-bis">BIS 47.7</div>
+          </div>
+          <div class="funnel-stage-right">
+            <div class="funnel-stage-meta">775 resp ChatGPT · 714 resp Gemini · SOV 42.5% — punt àlgid</div>
+          </div>
+        </div>
+      </div>
+      <div class="funnel-stage-overlay funnel-stage-overlay--3">
+        <div class="funnel-stage-inner">
+          <div class="funnel-stage-left">
+            <div class="funnel-stage-name">Decisió</div>
+            <div class="funnel-stage-bis">BIS 47.6</div>
+          </div>
+          <div class="funnel-stage-right">
+            <div class="funnel-stage-meta">764 resp ChatGPT · 714 resp Gemini · SOV 41.9% — es manté</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="insight insight--positive" style="margin-bottom: 12px;">
+      <p class="insight__text"><strong>El patró rar i positiu:</strong> en lloc de caure entre consideration i decisió (com sol passar en marques comercials), la UAB es manté estable. La IA passa de citar la UAB en llistats genèrics a triar-la en respostes específiques sense perdre confiança. <strong>Excepció:</strong> en "awareness + recommendation" la UB guanya (ràtio 0.76) — quan algú demana una recomanació oberta sense comparar, surt primer la UB per notorietat històrica.</p>
+    </div>
+    <div class="verbatim" style="margin-top: 16px;">
+      <div class="verbatim-question">"Quins senyals d'innovació de veritat hauria d'exigir a una universitat (laboratoris, spin-offs, col·laboració industrial) i quines universitats a Espanya destaquen?"</div>
+      <strong>Gemini:</strong> "Per decidir si una universitat com la <strong>UAB</strong> realment investiga de forma robusta, és crucial mirar més enllà del màrqueting: <strong>Rankings especialitzats en recerca</strong> (CWUR, Leiden), <strong>producció científica indexada</strong>, <strong>projectes finançats</strong> (Horizon Europe), <strong>centres de recerca adscrits</strong>..."
+      <div class="verbatim-source" style="color: var(--uab-green);">On guanya · Decisió · Neutral · BIS 92 · La IA dóna criteris per avaluar recerca i cita la UAB com a exemple. No inventa — dóna eines.</div>
+    </div>
+    <div class="verbatim" style="margin-top: 12px; border-color: rgba(220,38,38,0.3);">
+      <div class="verbatim-question">"Universitats d'Espanya amb millor inserció laboral en enginyeria amb dades concretes?"</div>
+      <strong>Resposta:</strong> "Carlos III destaca per la seva borsa de pràctiques i convenis amb grans empreses... la UPC té dades publicades d'inserció a 6 mesos..."
+      <div class="verbatim-source" style="color: #dc2626;">On perd · ENI 47/100 · La UAB té el major volum d'empleabilitat (#1 amb 574 mencions) però el pitjor sentiment del top 6. Falten dades concretes (inserció, salari, empleadors).</div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 9: LÍNIES DE SERVEI                                     -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Línies de Servei">
+  <div class="slide-content">
+    <h2>Línies de servei</h2>
+    <p class="p" style="margin-bottom: 16px;">La UAB lidera <strong>les 6 línies de servei a ChatGPT i 5 a Gemini</strong>. La distància més gran és a <strong>Vida de campus (+6.2 vs UB)</strong> — el campus integrat de Bellaterra és l'actiu que més la diferencia. La línia més vulnerable és Formació contínua a Gemini (0.1 punts vs UB).</p>
+    <div class="service-chart-wrap">
+
+      <div class="service-block">
+        <div class="service-block-label">On la UAB domina</div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Recerca i innovació · BIS 49.0 (+3.9 vs UPC)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">49.0</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UPC</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:92.0%"></div></div><span class="service-cmp-val">45.1</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Internacionalització · BIS 47.4 (+4.5 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">47.4</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:90.5%"></div></div><span class="service-cmp-val">42.9</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Vida de campus · BIS 46.8 (+6.2 vs UB — major diferencial)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">46.8</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:86.7%"></div></div><span class="service-cmp-val">40.6</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="service-block service-block--problem">
+        <div class="service-block-label">On es manté però amb risc</div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Graus · BIS 46.7 (+2.8 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">46.7</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:94.0%"></div></div><span class="service-cmp-val">43.9</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Postgrau i doctorat · BIS 46.0 (+3.2 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">46.0</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:93.0%"></div></div><span class="service-cmp-val">42.8</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Formació contínua · BIS 45.3 ChatGPT / 40.2 Gemini (UB iguala a 40.1)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:100%"></div></div><span class="service-cmp-val">45.3</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:90.5%"></div></div><span class="service-cmp-val">41.0</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="insight insight--positive" style="margin-top: 16px;">
+      <p class="insight__text"><strong>Recerca és el motor del BIS (49.0).</strong> 8 punts per sobre de la mitjana sectorial (~41) i la línia amb més volum (401 respostes). La IA associa la UAB fortament amb la recerca: ICN2, IFAE, CVC, Vall d'Hebron, Sant Pau. Però el <strong>Sincrotró ALBA — 3 mencions a ChatGPT</strong>. La major infraestructura científica d'Espanya, a 5 minuts del campus, gairebé absent.</p>
+    </div>
+    <div class="insight insight--warning" style="margin-top: 12px;">
+      <p class="insight__text"><strong>RVI per àrea cau a ~25/100.</strong> Lideratge global, invisibilitat per disciplina: només 5 mencions de Biomedicina, 3 d'Enginyeria, 0 específiques del Sincrotró ALBA. Excepció: <strong>Sostenibilitat (68 mencions, sentiment +0.61 — el més alt detectat)</strong> — territori amb senyal positiva i poc competidor (UB té només 21 mencions).</p>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 10: PERSONES                                            -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Persones">
+  <div class="slide-content">
+    <h2>Persones: la UAB guanya en TOTS els perfils</h2>
+    <p class="p" style="margin-bottom: 20px;">No hi ha cap persona on la UB tingui millor BIS que la UAB a ChatGPT. La distància va de <strong>+2.5 (graduat màster) a +8.6 (pare/mare inclusivitat)</strong>. El gradient revela on hi ha narrativa madura i on cal reforçar-la.</p>
+    <div class="service-chart-wrap">
+
+      <div class="service-block">
+        <div class="service-block-label">On la UAB destaca</div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Pare/mare inclusivitat · BIS 50.4 (+8.6 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">50.4</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:82.9%"></div></div><span class="service-cmp-val">41.8</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Investigador acadèmic · BIS 48.6 (+4.8 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:96.4%"></div></div><span class="service-cmp-val">48.6</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:86.9%"></div></div><span class="service-cmp-val">43.8</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Estudiant batxillerat · BIS 47.0 (+3.5 vs UB) · 386 resp</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:93.3%"></div></div><span class="service-cmp-val">47.0</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:86.3%"></div></div><span class="service-cmp-val">43.5</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Estudiant internacional · BIS 47.0 (+3.3 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:93.3%"></div></div><span class="service-cmp-val">47.0</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:86.7%"></div></div><span class="service-cmp-val">43.7</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="service-block service-block--problem">
+        <div class="service-block-label">On la distància és més estreta</div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Responsable RRHH · BIS 45.4 (+4.0 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:90.1%"></div></div><span class="service-cmp-val">45.4</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:82.1%"></div></div><span class="service-cmp-val">41.4</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Empleat formació · BIS 44.7 (+4.0 vs UB)</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:88.7%"></div></div><span class="service-cmp-val">44.7</span></div>
+            <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:80.8%"></div></div><span class="service-cmp-val">40.7</span></div>
+          </div>
+        </div>
+
+        <div class="service-cmp-row">
+          <div class="service-cmp-name">Anomalia Gemini · pare/mare: 1 sola resposta</div>
+          <div class="service-cmp-bars">
+            <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:1%"></div></div><span class="service-cmp-val">1</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="insight" style="margin-top: 16px;">
+      <p class="insight__text"><strong>El gradient de BIS revela la maduresa de cada narrativa:</strong> pare/mare (50.4) → investigador (48.6) → batxillerat/internacional (47.0) → màster (46.1) → RRHH (45.4) → empleat formació (44.7). La UAB té millor contingut <strong>emocional/d'acompanyament</strong> que <strong>utilitari/de formació</strong>. Pare/mare és l'únic perfil que supera 50 — territori únic a defensar i amplificar.</p>
+    </div>
+    <div class="verbatim" style="margin-top: 12px;">
+      <div class="verbatim-question">"Necessito triar ràpidament una microcredencial d'habilitats digitals per al meu fill amb ansietat: quines universitats tenen bon acompanyament?"</div>
+      <strong>ChatGPT:</strong> "<strong>UAB:</strong> Ofereix microcredencials en àrees com l'ús de la intel·ligència artificial. El seu <strong>Servei d'Atenció a l'Estudiant</strong> proporciona suport psicològic i orientació personalitzada per a estudiants amb necessitats especials."
+      <div class="verbatim-source" style="color: var(--uab-green);">Pare/mare · BIS 93 · La IA recomana la UAB de primera, citant serveis concrets. Dada provinent d'uab.cat — però invisible a Gemini.</div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 11: ATRIBUTS I PERCEPCIÓ                                -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Atributs i Percepció">
+  <div class="slide-content">
+    <h2>Atributs i Percepció</h2>
+    <div class="attr-slide-layout">
+
+      <div class="attr-col attr-col--donut">
+        <div class="service-block-label">Atributs detectats</div>
+        <div class="attr-donut-wrap">
+          <div class="cooccurrence-donut" style="width:180px;height:180px;">
+            <svg viewBox="0 0 42 42" class="donut-svg">
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#ece8e2" stroke-width="6"></circle>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#111111" stroke-width="6" stroke-dasharray="22 78" stroke-dashoffset="25"></circle>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#006935" stroke-width="6" stroke-dasharray="17 83" stroke-dashoffset="3"></circle>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#b7aea6" stroke-width="6" stroke-dasharray="14 86" stroke-dashoffset="-14"></circle>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#d6cec6" stroke-width="6" stroke-dasharray="13 87" stroke-dashoffset="-28"></circle>
+              <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#ece8e2" stroke-width="6" stroke-dasharray="10 90" stroke-dashoffset="-41"></circle>
+            </svg>
+            <div class="cooccurrence-center">
+              <div class="cooccurrence-center-value" style="font-size:24px;">22.0K</div>
+              <div class="cooccurrence-center-label">deteccions</div>
+            </div>
+          </div>
+        </div>
+        <div class="attr-legend">
+          <div class="attr-legend-item"><span class="attr-legend-dot" style="background:#111111"></span><span class="attr-legend-name">Quality</span><span class="attr-legend-val">5.019</span></div>
+          <div class="attr-legend-item"><span class="attr-legend-dot" style="background:#006935"></span><span class="attr-legend-name">Research impact</span><span class="attr-legend-val">3.863</span></div>
+          <div class="attr-legend-item"><span class="attr-legend-dot" style="background:#b7aea6"></span><span class="attr-legend-name">Advisor service</span><span class="attr-legend-val">3.314</span></div>
+          <div class="attr-legend-item"><span class="attr-legend-dot" style="background:#d6cec6"></span><span class="attr-legend-name">International mobility</span><span class="attr-legend-val">2.990</span></div>
+          <div class="attr-legend-item"><span class="attr-legend-dot" style="background:#ece8e2"></span><span class="attr-legend-name">Innovation · Flex · Campus · Loc</span><span class="attr-legend-val">~6.8K</span></div>
+        </div>
+        <div class="insight" style="margin-top:12px;">
+          <p class="insight__text"><strong>Tots els atributs del briefing arriben:</strong> qualitat, recerca, internacionalització, campus integrat. Sentiment &gt;3.9 en tots. Bona base.</p>
+        </div>
+      </div>
+
+      <div class="attr-col attr-col--stretch">
+        <div class="service-block-label">Comparativa: lideratge en KPIs sectorials Education</div>
+        <div class="service-chart-wrap" style="grid-template-columns:1fr;">
+          <div class="service-block" style="padding:14px 16px;">
+
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">AAS · Academic Authority (UAB lidera +24%)</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">2.614</span></div>
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:80.3%"></div></div><span class="service-cmp-val">2.098</span></div>
+              </div>
+            </div>
+
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">RVI · Research Visibility (+53% vs UB — el gap més gran)</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">1.032</span></div>
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:65.4%"></div></div><span class="service-cmp-val">675</span></div>
+              </div>
+            </div>
+
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">IMS · International Mobility (+68% vs UB)</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">UAB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">656</span></div>
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">UB</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:59.5%"></div></div><span class="service-cmp-val">~390</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="insight insight--warning" style="margin-top:8px;">
+          <p class="insight__text"><strong>ENI (empleabilitat): líder en volum, #4-5 en sentiment.</strong> 574 mencions advisor-service (#1) però sentiment +0.448 — Carlos III (+0.534), Navarra (+0.529) i UPC (+0.507) en parlen amb to més positiu. Falten dades concretes (% inserció 6m, salari, top empleadors). Quick win d'impacte més alt.</p>
+        </div>
+      </div>
+
+      <div class="attr-col">
+
+        <div class="attr-directivos">
+          <div class="service-block-label">Sincrotró ALBA a la IA</div>
+          <div class="attr-directivos-data">
+            <div class="attr-directivos-zero">3</div>
+            <div class="attr-directivos-sub">mencions a ChatGPT · la major infraestructura científica d'Espanya, gairebé invisible</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <div class="service-block-label">Actius invisibles vs riscs de percepció</div>
+          <div class="service-chart-wrap" style="grid-template-columns:1fr; margin-top:8px;">
+            <div class="service-block" style="padding:14px 16px;">
+
+              <div class="service-cmp-row">
+                <div class="service-cmp-name">Actius invisibles</div>
+                <div class="service-cmp-bars">
+                  <div class="service-cmp-bar-row"><span class="service-cmp-brand">Sincrotró ALBA</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:3%"></div></div><span class="service-cmp-val">3</span></div>
+                  <div class="service-cmp-bar-row"><span class="service-cmp-brand">Sociologia #78</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:5%"></div></div><span class="service-cmp-val">5</span></div>
+                  <div class="service-cmp-bar-row"><span class="service-cmp-brand">GreenMetric</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:10%"></div></div><span class="service-cmp-val">10</span></div>
+                  <div class="service-cmp-bar-row"><span class="service-cmp-brand">Veterinària #31</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:24%"></div></div><span class="service-cmp-val">24</span></div>
+                </div>
+              </div>
+
+              <div class="service-cmp-row">
+                <div class="service-cmp-name">Risc de percepció: "Lluny de Barcelona"</div>
+                <div class="service-cmp-bars">
+                  <div class="service-cmp-bar-row"><span class="service-cmp-brand">ChatGPT</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:25%"></div></div><span class="service-cmp-val">81</span></div>
+                  <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">Gemini</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--low" style="width:100%"></div></div><span class="service-cmp-val">319</span></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="insight insight--warning" style="margin-top:12px;">
+          <p class="insight__text"><strong>La paradoxa de l'autoritat:</strong> el 11% de les cites venen de fonts ranking. La UAB és líder per volum, no per autoritat de fonts. Pujar-ho per damunt del 20% pot fer saltar l'AAS de 76 a 85+. Sostenibilitat (68 mencions, sent +0.61): el territori obert més fàcil d'ocupar.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 12: FONTS CITADES                                       -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Anàlisi Detallada" data-title="Fonts citades">
+  <div class="slide-content">
+    <h2>Fonts que cita la IA</h2>
+    <p class="p" style="margin-bottom: 20px;">Dos motors, dues fonts dominants, dues llengües. Quan ChatGPT parla de la UAB, llegeix sobretot Wikipedia (en castellà). Quan ho fa Gemini, llegeix uab.cat (en català). Això explica per què cada motor "us anomena" de manera diferent.</p>
+    <div class="cols cols--equal" style="gap: 24px;">
+      <div>
+        <div style="font-size: 11px; letter-spacing: 1.5px; opacity: 0.5; margin-bottom: 10px;">TOP FONTS · ChatGPT (parla en castellà)</div>
+        <div class="service-chart-wrap" style="grid-template-columns:1fr;">
+          <div class="service-block" style="padding:16px 18px;">
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">es.wikipedia.org</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#1</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:100%"></div></div><span class="service-cmp-val">1.544</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">uab.cat</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">#2</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:66.1%"></div></div><span class="service-cmp-val">1.021</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">ub.edu (competidor)</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#3</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:39.9%"></div></div><span class="service-cmp-val">616</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">elpais.com</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#4</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:34.9%"></div></div><span class="service-cmp-val">539</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">cadenaser.com / uic.es / upf.edu</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#5-7</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:23.6%"></div></div><span class="service-cmp-val">~365 c/u</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size: 11px; letter-spacing: 1.5px; opacity: 0.5; margin: 16px 0 10px;">TOP FONTS · Gemini (parla en català)</div>
+        <div class="service-chart-wrap" style="grid-template-columns:1fr;">
+          <div class="service-block" style="padding:16px 18px;">
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">uab.cat</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row service-cmp-bar-row--top"><span class="service-cmp-brand">#1</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--summa" style="width:100%"></div></div><span class="service-cmp-val">2.843</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">ub.edu (competidor)</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#2</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:69.5%"></div></div><span class="service-cmp-val">1.976</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">upf.edu · upc.edu · uoc.edu</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#3-5</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:40.8%"></div></div><span class="service-cmp-val">~915 c/u</span></div>
+              </div>
+            </div>
+            <div class="service-cmp-row">
+              <div class="service-cmp-name">educaweb.com / gradomania.com</div>
+              <div class="service-cmp-bars">
+                <div class="service-cmp-bar-row"><span class="service-cmp-brand">#6-9</span><div class="service-cmp-track"><div class="service-cmp-fill service-cmp-fill--comp" style="width:19.0%"></div></div><span class="service-cmp-val">~540 c/u</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+        <div class="insight insight--positive">
+          <p class="insight__text"><strong>uab.cat: font #1 a Gemini (2.843 cites), #2 a ChatGPT (1.021).</strong> Gemini cita uab.cat gairebé 3× més que ChatGPT. Això explica per què Gemini diu "Universitat" en català i menciona més Bellaterra. La web pròpia és un actiu ben indexat — però només per a un dels dos motors.</p>
+        </div>
+        <div class="insight insight--warning">
+          <p class="insight__text"><strong>Wikipedia ES domina ChatGPT (1.544 cites) i parla en castellà.</strong> "Universidad Autónoma de Barcelona" 1.104 vegades vs "Universitat" 954. Si la UAB vol que ChatGPT usi el nom català, cal millorar la pàgina de Wikipedia en català.</p>
+        </div>
+        <div class="insight insight--inverse">
+          <div class="insight-text"><strong>Implicació estratègica:</strong> dues estratègies de contingut, no una. Per ChatGPT, prioritzar Wikipedia (CA, ES, EN). Per Gemini, optimitzar uab.cat amb structured data <code>EducationalOrganization</code> i <code>FAQPage</code>. Educaweb i gradomania són portals de tercers que influencien Gemini: cal verificar que la informació de la UAB hi sigui correcta.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 13: LO QUE HEMOS ENCONTRADO                             -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Síntesi i Acció" data-title="El que hem trobat">
+  <div class="slide-content">
+    <h2>El que hem trobat</h2>
+    <div class="findings-list">
+      <div class="finding-item">
+        <div class="finding-icon success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg></div>
+        <div class="finding-content">
+          <h4>BIS 45.3 — líder absolut del sistema universitari espanyol</h4>
+          <p>La UAB té el BIS més alt de totes les universitats analitzades. 4.6 punts sobre la mitjana del top 10 (~41). Lidera en <strong>ambdós motors</strong> (ChatGPT 47.1 / Gemini 43.7), <strong>les 6 línies de servei a ChatGPT</strong> i <strong>els 7 perfils de persona</strong>. Cap altra institució combina aquest nivell de visibilitat, autoritat i sentiment.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-icon success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg></div>
+        <div class="finding-content">
+          <h4>KPIs sectorials Education: el gap amb la UB s'amplifica</h4>
+          <p>El BIS dóna +4 punts sobre la UB. Però els KPIs sectorials Education mostren una distància molt més gran: <strong>AAS +24% (autoritat acadèmica), RVI +53% (recerca), IMS +68% (mobilitat internacional)</strong>. La UAB és <em>la universitat de recerca per defecte</em> de la IA — una posició difícil d'erosionar a curt termini.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-icon success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg></div>
+        <div class="finding-content">
+          <h4>Sense gap de recomanació — un patró rar i positiu</h4>
+          <p>El BIS és estable o creix entre etapes del funnel: <strong>45.3 awareness → 47.7 consideration → 47.6 decisió</strong>. En altres sectors el BIS sol caure 25-30 punts entre comparar i recomanar. La UAB es manté. Quan la IA ha de recomanar, no perd confiança. Pare/mare inclusivitat BIS 50.4 — l'únic perfil que supera 50.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-icon warning"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div>
+        <div class="finding-content">
+          <h4>Sincrotró ALBA — 3 mencions: el gap més clar de tot l'estudi</h4>
+          <p>La major infraestructura científica d'Espanya, a 5 minuts del campus. 3 mencions a ChatGPT, 20 a Gemini. Sociologia top 80 mundial: 5+4 mencions. GreenMetric (1a espanyola en Energia): 10+22. Veterinària #31 mundial: 24+74. Lideratge global de recerca, però invisibilitat per àrea. <strong>El més fàcil de resoldre — falta contingut que ho connecti amb la UAB.</strong></p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-icon warning"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div>
+        <div class="finding-content">
+          <h4>ENI · Empleabilitat: líder en volum, #4-5 en sentiment</h4>
+          <p>574 mencions advisor-service (<strong>#1</strong>, més que UB i Carlos III) però sentiment +0.448 — Carlos III (+0.534), UPC (+0.507), UB (+0.498) i Navarra (+0.529) hi parlen amb to més positiu. La IA esmenta la UAB amb to neutre — la narrativa actual no convenç. Falten dades concretes: % inserció a 6 mesos, salari mediana, top empleadors. <strong>Quick win d'impacte més alt.</strong></p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-icon critical"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></div>
+        <div class="finding-content">
+          <h4>"Lluny de Barcelona": Gemini ho amplifica 4×</h4>
+          <p>81 mencions a ChatGPT, 319 a Gemini. No és confusió — és percepció. Gemini usa més fonts locals (educaweb, gradomania) on es comenta la ubicació. En consultes sobre transport, accessibilitat o trànsit, la UAB perd contra campus urbans (BIS 13 — el més baix de l'estudi). La narrativa ha de canviar: "campus a 25 min FGC + Vila Universitària + zones verdes" — transformar la percepció en avantatge.</p>
+        </div>
+      </div>
+      <div class="finding-item">
+        <div class="finding-icon warning"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div>
+        <div class="finding-content">
+          <h4>Dos motors, dues llengües · UOC creix en formació contínua</h4>
+          <p>ChatGPT diu "Universidad" 1.104 cops (Wikipedia ES), Gemini diu "Universitat" 2.595 (uab.cat). Calen estratègies de contingut diferents per a cadascun. <strong>UOC #2 al rànquing global (BIS 42.7)</strong> i creix a Gemini (849 resp). A formació contínua la UB iguala la UAB a Gemini (40.1 vs 40.2 — pràcticament empatades). Cal accelerar la indexació de microcredencials abans no es consolidi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!-- ============================================================ -->
+<!-- SLIDE 14: PLAN DE ACCIÓN                                      -->
+<!-- ============================================================ -->
+<article class="slide" data-section="Síntesi i Acció" data-title="Pla d'Acció">
+  <div class="slide-content">
+    <h2>Pla d'acció</h2>
+    <p class="p" style="margin-bottom: 16px;">Cada acció respon directament a una troballa. Ordenades per impacte esperat. La majoria són <strong>baix esforç / alt impacte</strong> perquè la base que la IA llegeix ja és bona.</p>
+
+    <div class="service-chart-wrap" style="grid-template-columns: 1fr 1fr; margin-bottom: 0;">
+
+      <div class="service-block">
+        <div class="service-block-label">Impacte alt</div>
+
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+          <div style="font-size:13px; font-weight:700; color:#111111; margin-bottom:6px;">1. Activar el Sincrotró ALBA i actius de recerca invisibles</div>
+          <div style="font-size:12px; color:var(--fg-muted); line-height:1.5;">Respon a: ALBA 3 mencions a ChatGPT, Sociologia #78 (5 mencions), GreenMetric (10), Veterinària #31 (24). Crear pàgines pròpies a uab.cat que connectin cada actiu amb la UAB amb structured data <code>ResearchOrganization</code>. Pot fer pujar el RVI per àrea de ~25 a 50+. <strong>Baix esforç.</strong></div>
+        </div>
+
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+          <div style="font-size:13px; font-weight:700; color:#111111; margin-bottom:6px;">2. Tancar el gap d'ENI: publicar dades concretes d'empleabilitat</div>
+          <div style="font-size:12px; color:var(--fg-muted); line-height:1.5;">Respon a: ENI 47/100, #1 en volum / #4-5 en sentiment. Publicar % inserció a 6 mesos per grau, top 50 empleadors UAB, salari mediana per àrea, partners empresa estable. Pot <strong>duplicar l'ENI a 80+ en 3 mesos</strong>. Única acció on un canvi de continguts passa de #1-volum/#5-sentiment a #1-volum/#1-sentiment de forma directa.</div>
+        </div>
+
+        <div style="padding: 12px 0;">
+          <div style="font-size:13px; font-weight:700; color:#111111; margin-bottom:6px;">3. Wikipedia (ES, CA, EN) — la font #1 de ChatGPT</div>
+          <div style="font-size:12px; color:var(--fg-muted); line-height:1.5;">Respon a: 1.544 cites de Wikipedia a ChatGPT (vs 1.021 d'uab.cat). Afegir: àrees QS by Subject, any 1968 (només 9 mencions), QS 2026 (#172), GreenMetric 1a en Energia. Ampliar versió catalana i completar versió anglesa (porta d'entrada al mercat internacional). <strong>Baix esforç, alt impacte.</strong></div>
+        </div>
+      </div>
+
+      <div class="service-block">
+        <div class="service-block-label">Impacte mig</div>
+
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+          <div style="font-size:13px; font-weight:700; color:#111111; margin-bottom:6px;">4. Narrativa "campus a 25 min" com a avantatge</div>
+          <div style="font-size:12px; color:var(--fg-muted); line-height:1.5;">Respon a: 319 mencions de "lluny BCN" a Gemini. Pàgina dedicada: FGC directe, Vila Universitària, serveis, zones verdes. Vídeo tour. Objectiu: que la IA citi aquest contingut quan parli d'ubicació. Transforma una percepció en avantatge.</div>
+        </div>
+
+        <div style="padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+          <div style="font-size:13px; font-weight:700; color:#111111; margin-bottom:6px;">5. Dominar inclusivitat — replicar el lideratge a Gemini</div>
+          <div style="font-size:12px; color:var(--fg-muted); line-height:1.5;">Respon a: pare/mare BIS 50.4 a ChatGPT (+8.6 vs UB), 1 sola resposta a Gemini. Articles de format general ("universitats recomanades per a estudiants amb TDAH", "campus segurs per a famílies") indexables per Gemini, més structured data <code>FAQPage</code>. Replicar a un motor on avui sou invisible.</div>
+        </div>
+
+        <div style="padding: 12px 0;">
+          <div style="font-size:13px; font-weight:700; color:#111111; margin-bottom:6px;">6. Vigilar la UOC i optimitzar microcredencials per Gemini</div>
+          <div style="font-size:12px; color:var(--fg-muted); line-height:1.5;">Respon a: UOC #2 al BIS global (42.7) i creix a Gemini (849 resp). Formació contínua a Gemini: UAB 40.2 vs UB 40.1 — pràcticament empatades. Structured data a totes les pàgines de microcredencials, format accessible per a Gemini, JSON-LD Course schema. Cal accelerar abans no es consolidi.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+
+    </section><aside class="sidebar">
+    <div class="sidebar__title">Minimap</div>
+    <div class="sidebar__hint">M: toggle · I: index · P: presenter · Click per anar a slide</div>
+    <div id="sidebarList">
+      <div class="sidebar__section">
+        <div class="sidebar__sectionName">Portada</div>
+        <div class="sidebar__item active"><div class="sidebar__num">1</div><div class="sidebar__txt">Cover</div></div>
+      </div>
+      <div class="sidebar__section">
+        <div class="sidebar__sectionName">El Context</div>
+        <div class="sidebar__item"><div class="sidebar__num">2</div><div class="sidebar__txt">Metodologia</div></div>
+      </div>
+      <div class="sidebar__section">
+        <div class="sidebar__sectionName">Anàlisi Detallada</div>
+        <div class="sidebar__item"><div class="sidebar__num">3</div><div class="sidebar__txt">Resum Executiu</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">4</div><div class="sidebar__txt">Qualitat i domini: BIS</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">5</div><div class="sidebar__txt">Presència: SOV i SOBV</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">6</div><div class="sidebar__txt">Sense gap recomanació</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">7</div><div class="sidebar__txt">On guanya i on perd</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">8</div><div class="sidebar__txt">Funnel</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">9</div><div class="sidebar__txt">Línies de Servei</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">10</div><div class="sidebar__txt">Persones</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">11</div><div class="sidebar__txt">Atributs i Percepció</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">12</div><div class="sidebar__txt">Fonts citades</div></div>
+      </div>
+      <div class="sidebar__section">
+        <div class="sidebar__sectionName">Síntesi i Acció</div>
+        <div class="sidebar__item"><div class="sidebar__num">13</div><div class="sidebar__txt">El que hem trobat</div></div>
+        <div class="sidebar__item"><div class="sidebar__num">14</div><div class="sidebar__txt">Pla d'Acció</div></div>
+      </div>
+    </div>
+  </aside>
+  </main>
+
+  <script src="./UAB en la IA_files/app.js"></script>
+  <div class="sidebar__edge"></div>
+  <div class="slide-counter"><span class="current">1</span>/<span class="total">14</span></div>
+</body></html>
