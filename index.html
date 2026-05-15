@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAB · Auditoria GEO · Març 2026</title>
+  <meta name="description" content="Auditoria GEORadar de la Universitat Autònoma de Barcelona. Anàlisi de visibilitat en IA generativa (ChatGPT + Gemini, 10.955 respostes).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --uab-green: #006935;
+      --uab-green-dark: #005028;
+      --uab-green-light: rgba(0,105,53,0.08);
+      --ink: #0A0A0A;
+      --bg: #FAFAF9;
+      --muted: #6b6b6b;
+      --border: rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 32px 80px; }
+
+    header { margin-bottom: 60px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--uab-green);
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-family: "Instrument Serif", "Inter", serif;
+      font-weight: 400;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+    h1 .accent { color: var(--uab-green); font-style: italic; }
+    .subtitle {
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+    .subtitle strong { color: var(--ink); font-weight: 600; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      margin: 48px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .metric {
+      padding: 24px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .metric:last-child { border-right: none; }
+    .metric-value {
+      font-family: "Instrument Serif", serif;
+      font-size: 40px;
+      line-height: 1;
+      color: var(--uab-green);
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .metric-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--uab-green);
+      box-shadow: 0 12px 28px rgba(0,105,53,0.10);
+    }
+    .card-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--uab-green);
+    }
+    .card-title {
+      font-family: "Instrument Serif", serif;
+      font-size: 32px;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--uab-green);
+    }
+    .card-cta::after {
+      content: '→';
+      transition: transform 0.2s ease;
+    }
+    .card:hover .card-cta::after { transform: translateX(4px); }
+
+    .findings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .finding {
+      padding: 20px;
+      background: var(--uab-green-light);
+      border-left: 3px solid var(--uab-green);
+      border-radius: 0 8px 8px 0;
+    }
+    .finding-num {
+      font-family: "Instrument Serif", serif;
+      font-size: 24px;
+      color: var(--uab-green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .finding-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .finding-text {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    footer {
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer a { color: var(--uab-green); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 720px) {
+      .container { padding: 40px 20px 60px; }
+      .card { padding: 24px; }
+      .metric { padding: 18px 12px; }
+      .metric-value { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <span class="badge">GEORadar · Auditoria GEO · Març 2026</span>
+      <h1>UAB <span class="accent">en la IA</span></h1>
+      <p class="subtitle">
+        Anàlisi de visibilitat de la <strong>Universitat Autònoma de Barcelona</strong> en motors d'IA generativa.
+        <strong>10.955 respostes</strong> de ChatGPT i Gemini sobre educació superior, recerca, graus, màsters, doctorats, vida de campus i formació contínua. La UAB és la universitat amb millor BIS de totes les analitzades.
+      </p>
+    </header>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-value">45.3</div>
+        <div class="metric-label">BIS global</div>
+        <div class="metric-sub">#1 sector</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">54.9%</div>
+        <div class="metric-label">SOBV</div>
+        <div class="metric-sub">#1 sector</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">+24%</div>
+        <div class="metric-label">AAS vs UB</div>
+        <div class="metric-sub">Autoritat acadèmica</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">+53%</div>
+        <div class="metric-label">RVI vs UB</div>
+        <div class="metric-sub">Recerca</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">+68%</div>
+        <div class="metric-label">IMS vs UB</div>
+        <div class="metric-sub">Mobilitat internacional</div>
+      </div>
+    </div>
+
+    <div class="section-title">Documents</div>
+    <div class="cards">
+
+      <a class="card" href="_outputs/UAB%20en%20la%20IA.html">
+        <span class="card-tag">Deck de presentació</span>
+        <h2 class="card-title">UAB en la IA</h2>
+        <p class="card-desc">
+          Presentació executiva de 14 slides amb els insights més rellevants: BIS, SOV/SOBV, no-gap de recomanació, línies de servei, persones, atributs invisibles i pla d'acció.
+        </p>
+        <div class="card-meta">
+          <span>14 slides</span>
+          <span>·</span>
+          <span>HTML interactiu</span>
+          <span>·</span>
+          <span class="card-cta">Veure deck</span>
+        </div>
+      </a>
+
+      <a class="card" href="_outputs/20260514_INFORME_uab_geo-audit-marc2026_v1.html">
+        <span class="card-tag">Informe complet</span>
+        <h2 class="card-title">Auditoria GEO UAB</h2>
+        <p class="card-desc">
+          Document tècnic de 25 pàgines amb el desglossament complet: glossari, metodologia, BIS per motor, SOV i SOBV, rànquing competitiu, funnels, intentions, persones deep dive, atributs, fonts citades, DAFO i roadmap 90 dies.
+        </p>
+        <div class="card-meta">
+          <span>25 pàgines</span>
+          <span>·</span>
+          <span>Format A4</span>
+          <span>·</span>
+          <span class="card-cta">Llegir informe</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="section-title">Findings clau</div>
+    <div class="findings">
+
+      <div class="finding">
+        <div class="finding-num">01</div>
+        <div class="finding-title">Líder absolut</div>
+        <div class="finding-text">BIS 45.3 — el més alt del sistema espanyol. Lidera en ambdós motors, les 6 línies i els 7 perfils.</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">02</div>
+        <div class="finding-title">KPIs Education amplifiquen</div>
+        <div class="finding-text">El BIS dóna +4 punts sobre la UB. AAS +24%, RVI +53%, IMS +68%. La universitat de recerca per defecte de la IA.</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">03</div>
+        <div class="finding-title">Sense gap de recomanació</div>
+        <div class="finding-text">BIS estable o ascendent del funnel: 45.3 → 47.7 → 47.6. Patró rar i positiu — la IA no perd confiança al recomanar.</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">04</div>
+        <div class="finding-title">Sincrotró ALBA invisible</div>
+        <div class="finding-text">3 mencions a ChatGPT. La major infraestructura científica d'Espanya, a 5 min del campus. Gap més clar i fàcil de resoldre.</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">05</div>
+        <div class="finding-title">ENI: volum sense convicció</div>
+        <div class="finding-text">#1 en volum d'empleabilitat (574 mencions) però #4-5 en sentiment. Falten dades concretes d'inserció laboral.</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">06</div>
+        <div class="finding-title">"Lluny de Barcelona"</div>
+        <div class="finding-text">81 mencions a ChatGPT vs 319 a Gemini. Percepció real, no confusió. Cal narrativa de "campus a 25 min".</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">07</div>
+        <div class="finding-title">Dos motors, dues llengües</div>
+        <div class="finding-text">ChatGPT diu "Universidad" (Wikipedia ES), Gemini "Universitat" (uab.cat). Calen estratègies de contingut diferents.</div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">08</div>
+        <div class="finding-title">UOC creix a Gemini</div>
+        <div class="finding-text">UOC #2 al BIS global (42.7). A formació contínua a Gemini empata amb la UB. Vigilar abans no es consolidi.</div>
+      </div>
+
+    </div>
+
+    <footer>
+      <span>GEORadar by <strong>498 Advisory Services</strong> · 2026</span>
+      <span><a href="https://github.com/498AS/uab-geo-audit">Repositori GitHub</a></span>
+    </footer>
+
+  </div>
+</body>
+</html>
