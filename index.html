@@ -168,6 +168,38 @@
       transition: transform 0.2s ease;
     }
     .card:hover .card-cta::after { transform: translateX(4px); }
+    .card--pending {
+      cursor: not-allowed;
+      background: repeating-linear-gradient(
+        135deg,
+        #fff,
+        #fff 12px,
+        #fafaf9 12px,
+        #fafaf9 24px
+      );
+      border-style: dashed;
+      border-color: rgba(0,0,0,0.14);
+      opacity: 0.85;
+    }
+    .card--pending:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: rgba(0,0,0,0.14);
+    }
+    .card--pending .card-tag { color: var(--muted); }
+    .card--pending .card-title { color: var(--muted); }
+    .card-cta-pending {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .card-cta-pending::before {
+      content: '⏱';
+      font-size: 14px;
+    }
 
     .findings {
       display: grid;
@@ -263,35 +295,35 @@
     <div class="section-title">Documents</div>
     <div class="cards">
 
-      <a class="card" href="_outputs/UAB%20en%20la%20IA.html">
-        <span class="card-tag">Deck de presentació</span>
-        <h2 class="card-title">UAB en la IA</h2>
-        <p class="card-desc">
-          Presentació executiva de 14 slides amb els insights més rellevants: BIS, SOV/SOBV, no-gap de recomanació, línies de servei, persones, atributs invisibles i pla d'acció.
-        </p>
-        <div class="card-meta">
-          <span>14 slides</span>
-          <span>·</span>
-          <span>HTML interactiu</span>
-          <span>·</span>
-          <span class="card-cta">Veure deck</span>
-        </div>
-      </a>
-
       <a class="card" href="_outputs/20260514_INFORME_uab_geo-audit-marc2026_v1.html">
-        <span class="card-tag">Informe complet</span>
+        <span class="card-tag">01 · Informe complet</span>
         <h2 class="card-title">Auditoria GEO UAB</h2>
         <p class="card-desc">
-          Document tècnic de 25 pàgines amb el desglossament complet: glossari, metodologia, BIS per motor, SOV i SOBV, rànquing competitiu, funnels, intentions, persones deep dive, atributs, fonts citades, DAFO i roadmap 90 dies.
+          Document tècnic amb el desglossament complet de l'anàlisi: glossari de mètriques, metodologia, BIS per motor, SOV i SOBV, rànquing competitiu, UAB vs UB i vs privades, funnels, intentions, línies de servei, persones, com ens anomena la IA, atributs, què no es veu, confusions, fonts citades i diagnòstic DAFO.
         </p>
         <div class="card-meta">
-          <span>25 pàgines</span>
+          <span>23 pàgines</span>
           <span>·</span>
           <span>Format A4</span>
           <span>·</span>
           <span class="card-cta">Llegir informe</span>
         </div>
       </a>
+
+      <div class="card card--pending" aria-disabled="true">
+        <span class="card-tag">02 · Pla d'acció</span>
+        <h2 class="card-title">Roadmap 90 dies</h2>
+        <p class="card-desc">
+          Document independent amb el pla d'acció priorizat per impacte i esforç. Quick wins (Sincrotró ALBA, ENI), accions de contingut (Wikipedia, narrativa de campus, inclusivitat) i amenaces a vigilar (UOC en formació contínua). Inclourà roadmap detallat i KPIs de mesura.
+        </p>
+        <div class="card-meta">
+          <span>Pendent de publicar</span>
+          <span>·</span>
+          <span>Q2 2026</span>
+          <span>·</span>
+          <span class="card-cta-pending">En preparació</span>
+        </div>
+      </div>
 
     </div>
 
