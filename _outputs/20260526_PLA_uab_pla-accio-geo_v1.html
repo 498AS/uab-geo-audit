@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pla d'acció GEO UAB · 2026 · v1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f8fa; --surface: #ffffff; --text: #111114; --text-secondary: #5c5c6b;
+      --text-tertiary: #8a8a96; --positive: #16a34a; --negative: #dc2626; --warning: #d97706;
+      --accent: #2563eb; --uab-green: #006935; --border: rgba(0,0,0,0.06); --border-strong: rgba(0,0,0,0.10);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:"Inter",system-ui,sans-serif; font-size:12px; line-height:1.7; color:var(--text); background:var(--bg); }
+    .report { max-width:210mm; margin:0 auto; padding:0 16px; }
+    @media screen { .page { margin:24px auto; } }
+    @page { size:A4; margin:0; }
+    @media print {
+      body { background:white; }
+      .page { margin:0; page-break-after:always; box-shadow:none!important; }
+      .sidebar,.sidebar-toggle { display:none!important; }
+    }
+    /* SIDEBAR */
+    .sidebar { position:fixed; top:0; left:0; bottom:0; width:220px; z-index:1000; background:rgba(255,255,255,0.95); backdrop-filter:blur(16px); color:var(--text-secondary); padding:24px 16px; overflow-y:auto; font-size:10.5px; border-right:1px solid var(--border); box-shadow:4px 0 24px rgba(0,0,0,0.04); border-radius:0 16px 16px 0; transition:transform .3s ease; }
+    .sidebar-logo { margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+    .sidebar-logo span { font-size:12px; font-weight:800; color:var(--text); letter-spacing:2px; text-transform:uppercase; }
+    .sidebar-section { font-size:9px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-tertiary); margin:14px 10px 6px; }
+    .sidebar-item { display:flex; align-items:baseline; gap:8px; padding:6px 10px; margin-bottom:2px; border-radius:8px; transition:all .15s ease; text-decoration:none; color:var(--text-secondary); }
+    .sidebar-item:hover { color:var(--text); background:rgba(0,0,0,0.03); }
+    .sidebar-item.active { color:var(--uab-green); background:rgba(0,105,53,0.06); font-weight:600; }
+    .sidebar-item-num { font-weight:700; min-width:18px; font-size:9px; color:var(--text-tertiary); }
+    .sidebar-item.active .sidebar-item-num { color:var(--uab-green); }
+    .sidebar-item-text { font-weight:500; font-size:10.5px; }
+    .sidebar-toggle { position:fixed; top:14px; left:14px; z-index:1001; width:36px; height:36px; background:var(--surface); color:var(--text); border:1px solid var(--border); border-radius:10px; display:none; align-items:center; justify-content:center; cursor:pointer; font-size:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); }
+    @media screen and (min-width:900px) { .report { margin-left:232px; } }
+    @media screen and (max-width:899px) { .sidebar { transform:translateX(-100%); } .sidebar.open { transform:translateX(0); } .sidebar-toggle { display:flex; } }
+    /* COVER */
+    .cover { width:210mm; min-height:297mm; padding:52px; background:linear-gradient(165deg,#0a1f15 0%,#0f2e1f 50%,#0a1f15 100%); color:#fff; border-radius:16px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 4px 24px rgba(0,0,0,0.12); }
+    .cover-top { display:flex; justify-content:space-between; align-items:center; }
+    .cover-badge { font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; border:1px solid rgba(255,255,255,0.2); padding:8px 18px; border-radius:8px; background:rgba(0,105,53,0.25); border-color:rgba(0,105,53,0.5); }
+    .cover-date { font-size:11px; color:rgba(255,255,255,0.5); }
+    .cover-main { margin:50px 0 36px; }
+    .cover-label { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:18px; }
+    .cover-title { font-size:54px; font-weight:900; line-height:1.05; letter-spacing:-2px; margin-bottom:22px; }
+    .cover-title em { color:#86efac; font-style:normal; font-weight:900; }
+    .cover-subtitle { font-size:14px; color:rgba(255,255,255,0.65); max-width:560px; line-height:1.75; }
+    .cover-brand { margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
+    .cover-brand-info h2 { font-size:26px; font-weight:800; }
+    .cover-brand-info p { font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px; }
+    .cover-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .cover-metric { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); padding:20px 16px; text-align:center; border-radius:12px; }
+    .cover-metric-value { font-size:34px; font-weight:900; letter-spacing:-1.5px; }
+    .cover-metric-label { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:6px; }
+    /* PAGES */
+    .page:not(.cover) { width:210mm; min-height:297mm; padding:44px 48px 72px; background:var(--surface); position:relative; border-radius:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04),0 4px 12px rgba(0,0,0,0.06); border:1px solid var(--border); }
+    .section-header { display:flex; align-items:baseline; gap:14px; margin-bottom:24px; padding-bottom:12px; border-bottom:2px solid var(--text); }
+    .section-number { font-size:36px; font-weight:900; color:rgba(0,0,0,0.08); }
+    .section-title { font-size:22px; font-weight:800; letter-spacing:-0.5px; }
+    .page-footer { position:absolute; bottom:28px; left:48px; right:48px; display:flex; justify-content:space-between; padding-top:12px; border-top:1px solid var(--border); font-size:9px; color:var(--text-tertiary); font-weight:600; letter-spacing:0.5px; text-transform:uppercase; }
+    /* COMPONENTS */
+    .metric-grid { display:grid; gap:10px; margin-bottom:18px; }
+    .metric-grid.cols-2 { grid-template-columns:repeat(2,1fr); }
+    .metric-grid.cols-3 { grid-template-columns:repeat(3,1fr); }
+    .metric-grid.cols-4 { grid-template-columns:repeat(4,1fr); }
+    .metric-card { background:var(--surface); padding:16px 18px; border-radius:12px; border:1px solid var(--border); box-shadow:0 1px 3px rgba(0,0,0,0.03); }
+    .metric-card.accent-positive { border-color:rgba(22,163,74,0.15); background:rgba(22,163,74,0.03); }
+    .metric-card.accent-negative { border-color:rgba(220,38,38,0.15); background:rgba(220,38,38,0.03); }
+    .metric-card.accent-warning { border-color:rgba(217,119,6,0.15); background:rgba(217,119,6,0.03); }
+    .metric-card.accent-uab { border-color:rgba(0,105,53,0.15); background:rgba(0,105,53,0.03); }
+    .metric-card-label { font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:6px; }
+    .metric-card-value { font-size:26px; font-weight:900; letter-spacing:-1.5px; line-height:1; }
+    .metric-card-desc { font-size:10px; color:var(--text-secondary); margin-top:6px; line-height:1.4; }
+    .insight { border-radius:10px; background:rgba(37,99,235,0.04); border:1px solid rgba(37,99,235,0.12); padding:14px 16px; margin-bottom:10px; }
+    .insight.positive { background:rgba(22,163,74,0.04); border-color:rgba(22,163,74,0.12); }
+    .insight.negative { background:rgba(220,38,38,0.04); border-color:rgba(220,38,38,0.12); }
+    .insight.warning { background:rgba(217,119,6,0.04); border-color:rgba(217,119,6,0.12); }
+    .insight.dark { background:#1e293b; color:#e2e8f0; border:none; }
+    .insight-title { font-size:11.5px; font-weight:700; margin-bottom:5px; }
+    .insight p { font-size:11px; color:var(--text-secondary); line-height:1.65; }
+    .insight.dark p { color:#94a3b8; } .insight.dark .insight-title { color:#f1f5f9; }
+    .callout { background:#0a1f15; color:#f1f5f9; padding:18px 22px; margin:16px 0; border-radius:12px; }
+    .callout p { font-size:11.5px; line-height:1.65; color:#cbd5e1; } .callout strong { color:#a7f3d0; }
+    table { width:100%; border-collapse:collapse; font-size:10.5px; }
+    th { background:#f0f0f3; color:#333; padding:8px 10px; text-align:left; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:0.5px; }
+    th:first-child { border-radius:8px 0 0 0; } th:last-child { border-radius:0 8px 0 0; }
+    td { padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+    .subsection-title { font-size:13px; font-weight:800; letter-spacing:-0.2px; margin:16px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--border-strong); }
+    .label-tag { display:inline-block; font-size:8px; font-weight:800; padding:3px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.5px; }
+    .label-tag.green { background:#dcfce7; color:var(--positive); }
+    .label-tag.red { background:#fee2e2; color:var(--negative); }
+    .label-tag.amber { background:#fef3c7; color:var(--warning); }
+    .label-tag.blue { background:#dbeafe; color:var(--accent); }
+    .label-tag.uab { background:rgba(0,105,53,0.12); color:var(--uab-green); }
+    .label-tag.grey { background:#f0f0f3; color:var(--text-secondary); }
+    .index-row { display:flex; justify-content:space-between; align-items:baseline; padding:11px 0; border-bottom:1px solid var(--border); }
+    .index-row-left { display:flex; align-items:baseline; gap:18px; }
+    .index-num { font-size:11px; font-weight:700; color:var(--text-tertiary); min-width:22px; }
+    .index-name { font-size:13px; font-weight:600; }
+    .index-pages { font-size:11px; font-weight:600; color:var(--text-tertiary); }
+    .index-group { font-size:9px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--uab-green); margin:18px 0 4px; padding-top:8px; }
+    .index-group:first-of-type { margin-top:0; padding-top:0; }
+    /* PAIN PAGE COMPONENTS */
+    .pain-header { display:flex; gap:18px; align-items:flex-start; margin-bottom:16px; padding-bottom:14px; border-bottom:2px solid var(--text); }
+    .pain-num { flex-shrink:0; width:54px; height:54px; background:var(--uab-green); color:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:900; }
+    .pain-title-block { flex:1; }
+    .pain-eyebrow { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:4px; }
+    .pain-title { font-size:21px; font-weight:800; letter-spacing:-0.5px; line-height:1.2; margin-bottom:8px; }
+    .pain-tags { display:flex; gap:6px; flex-wrap:wrap; }
+    .diagnostic-box { background:rgba(220,38,38,0.04); border:1px solid rgba(220,38,38,0.12); border-left:4px solid var(--negative); padding:14px 16px; border-radius:0 10px 10px 0; margin-bottom:16px; }
+    .diagnostic-box .diagnostic-title { font-size:10px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--negative); margin-bottom:6px; }
+    .diagnostic-box p { font-size:11px; color:var(--text-secondary); line-height:1.65; }
+    .diagnostic-box strong { color:var(--text); }
+    .action-list { counter-reset:action; list-style:none; padding:0; }
+    .action-item { display:flex; gap:14px; padding:12px 0; border-bottom:1px solid var(--border); position:relative; }
+    .action-item:last-child { border-bottom:none; }
+    .action-num { flex-shrink:0; width:28px; height:28px; background:var(--uab-green); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; }
+    .action-body { flex:1; }
+    .action-title { font-size:12px; font-weight:700; margin-bottom:3px; line-height:1.4; }
+    .action-desc { font-size:11px; color:var(--text-secondary); line-height:1.55; }
+    .action-tags { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
+    .priority-matrix { display:grid; grid-template-columns:130px 1fr 1fr 1fr 150px; gap:0; font-size:10.5px; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .priority-matrix > div { padding:9px 12px; border-bottom:1px solid var(--border); border-right:1px solid var(--border); }
+    .priority-matrix > div:nth-child(5n) { border-right:none; }
+    .priority-matrix > div:nth-last-child(-n+5) { border-bottom:none; }
+    .priority-matrix-header { background:#f0f0f3; font-weight:800; font-size:9px; text-transform:uppercase; letter-spacing:0.5px; color:#333; }
+    .priority-matrix-pain { font-weight:700; }
+    /* ROADMAP */
+    .roadmap-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:14px; }
+    .roadmap-phase { background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--uab-green); border-radius:10px; padding:12px 14px; }
+    .roadmap-phase-label { font-size:8px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--uab-green); margin-bottom:4px; }
+    .roadmap-phase-weeks { font-size:18px; font-weight:900; letter-spacing:-1px; margin-bottom:8px; }
+    .roadmap-phase ul { margin:0; padding-left:14px; font-size:10px; color:var(--text-secondary); line-height:1.55; }
+    .roadmap-phase ul li { margin-bottom:3px; }
+    /* KPI */
+    .kpi-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .kpi-card { background:rgba(0,105,53,0.03); border:1px solid rgba(0,105,53,0.12); border-radius:10px; padding:12px 14px; }
+    .kpi-name { font-size:9px; font-weight:800; letter-spacing:1px; text-transform:uppercase; color:var(--uab-green); margin-bottom:4px; }
+    .kpi-baseline { font-size:10.5px; color:var(--text-secondary); }
+    .kpi-target { font-size:13px; font-weight:800; color:var(--text); margin-top:4px; }
+    .kpi-target span { color:var(--uab-green); }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-logo"><span>Pla d'acció</span></div>
+  <a class="sidebar-item active" href="#cover"><span class="sidebar-item-num">01</span><span class="sidebar-item-text">Portada</span></a>
+  <a class="sidebar-item" href="#index"><span class="sidebar-item-num">02</span><span class="sidebar-item-text">Índex</span></a>
+  <a class="sidebar-item" href="#estructura"><span class="sidebar-item-num">03</span><span class="sidebar-item-text">Estructura del pla</span></a>
+  <a class="sidebar-item" href="#resum"><span class="sidebar-item-num">04</span><span class="sidebar-item-text">Resum executiu</span></a>
+  <div class="sidebar-section">Pains</div>
+  <a class="sidebar-item" href="#pain-1"><span class="sidebar-item-num">P1</span><span class="sidebar-item-text">Empleabilitat (ENI)</span></a>
+  <a class="sidebar-item" href="#pain-2"><span class="sidebar-item-num">P2</span><span class="sidebar-item-text">Inclusivitat a Gemini</span></a>
+  <a class="sidebar-item" href="#pain-3"><span class="sidebar-item-num">P3</span><span class="sidebar-item-text">Sincrotró ALBA</span></a>
+  <a class="sidebar-item" href="#pain-4"><span class="sidebar-item-num">P4</span><span class="sidebar-item-text">Naming oficial</span></a>
+  <a class="sidebar-item" href="#pain-5"><span class="sidebar-item-num">P5</span><span class="sidebar-item-text">Microcredencials / UOC</span></a>
+  <a class="sidebar-item" href="#pain-6"><span class="sidebar-item-num">P6</span><span class="sidebar-item-text">Funnel awareness</span></a>
+  <a class="sidebar-item" href="#pain-7"><span class="sidebar-item-num">P7</span><span class="sidebar-item-text">Percepció de llunyania</span></a>
+  <div class="sidebar-section">Transversals</div>
+  <a class="sidebar-item" href="#wikipedia"><span class="sidebar-item-num">T1</span><span class="sidebar-item-text">Wikipedia</span></a>
+  <a class="sidebar-item" href="#content-farm"><span class="sidebar-item-num">T2</span><span class="sidebar-item-text">Content Farm</span></a>
+  <a class="sidebar-item" href="#reddit"><span class="sidebar-item-num">T3</span><span class="sidebar-item-text">Reddit</span></a>
+  <div class="sidebar-section">Tancament</div>
+  <a class="sidebar-item" href="#roadmap"><span class="sidebar-item-num">15</span><span class="sidebar-item-text">Tancament</span></a>
+</div>
+<button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+<div class="report">
+
+<!-- ================================================================ -->
+<!-- PAGE 1: COVER                                                     -->
+<!-- ================================================================ -->
+<div class="page cover" id="cover">
+  <div class="cover-top">
+    <div class="cover-badge">Pla d'acció · Roadmap GEO</div>
+    <div class="cover-date">Maig 2026</div>
+  </div>
+  <div class="cover-main">
+    <div class="cover-label">Conseqüències de l'auditoria GEORadar</div>
+    <h1 class="cover-title">PLA D'ACCIÓ<br>UAB <em>en la IA</em></h1>
+    <p class="cover-subtitle">Set àrees de treball derivades de l'auditoria de visibilitat en motors d'IA generativa. Cada pain ve amb accions concretes. Tres projectes transversals (Wikipedia, Content Farm i Reddit) travessen tot el pla.</p>
+    <div class="cover-brand">
+      <div class="cover-brand-info">
+        <h2>UAB</h2>
+        <p>Roadmap 90 dies · Maig–Agost 2026</p>
+      </div>
+    </div>
+  </div>
+  <div class="cover-metrics">
+    <div class="cover-metric"><div class="cover-metric-value">7</div><div class="cover-metric-label">Pains</div></div>
+    <div class="cover-metric"><div class="cover-metric-value">31</div><div class="cover-metric-label">Accions</div></div>
+    <div class="cover-metric"><div class="cover-metric-value">3</div><div class="cover-metric-label">Transversals</div></div>
+    <div class="cover-metric"><div class="cover-metric-value">90d</div><div class="cover-metric-label">Horitzó</div></div>
+  </div>
+  <div style="text-align:center; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06); margin-top:12px; font-size:10px; color:rgba(255,255,255,0.2);">GEORadar by 498 Advisory Services · 2026</div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 2: INDEX                                                     -->
+<!-- ================================================================ -->
+<div class="page" id="index">
+  <div class="section-header"><span class="section-number">00</span><h2 class="section-title">Índex</h2></div>
+
+  <div class="index-group">Marc del pla</div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">01</span><span class="index-name">Estructura del pla</span></div><span class="index-pages">3</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">02</span><span class="index-name">Resum executiu: matriu de prioritats</span></div><span class="index-pages">4</span></div>
+
+  <div class="index-group">Pains</div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P1</span><span class="index-name">Empleabilitat: dades que existeixen però no es publiquen</span></div><span class="index-pages">5</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P2</span><span class="index-name">Inclusivitat: gap quasi total a Gemini</span></div><span class="index-pages">6</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P3</span><span class="index-name">Sincrotró ALBA desconnectat de la UAB</span></div><span class="index-pages">7</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P4</span><span class="index-name">Naming: el motor decideix l'idioma, no la UAB</span></div><span class="index-pages">8</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P5</span><span class="index-name">Microcredencials: la UOC tanca distàncies a Gemini</span></div><span class="index-pages">9</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P6</span><span class="index-name">Funnel awareness: la UB guanya quan no es compara</span></div><span class="index-pages">10</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">P7</span><span class="index-name">Percepció de llunyania: Gemini l'amplifica 4×</span></div><span class="index-pages">11</span></div>
+
+  <div class="index-group">Projectes transversals</div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">T1</span><span class="index-name">Wikipedia: font #1 de ChatGPT</span></div><span class="index-pages">12</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">T2</span><span class="index-name">Content Farm: contingut distribuït en propietats externes</span></div><span class="index-pages">13</span></div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">T3</span><span class="index-name">Reddit: la veu de comunitat que els LLMs llegeixen</span></div><span class="index-pages">14</span></div>
+
+  <div class="index-group">Tancament</div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">15</span><span class="index-name">Tancament i propers passos</span></div><span class="index-pages">15</span></div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>2</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 3: ESTRUCTURA DEL PLA                                        -->
+<!-- ================================================================ -->
+<div class="page" id="estructura">
+  <div class="section-header"><span class="section-number">01</span><h2 class="section-title">Estructura del pla</h2></div>
+
+  <p style="font-size:12px; line-height:1.7; margin-bottom:14px;">
+    L'auditoria GEORadar identifica un punt de partida sòlid: la UAB és la universitat amb millor BIS del sistema espanyol (47.1 ChatGPT / 43.7 Gemini), líder en sis línies de servei i en tots els perfils. Però <strong>el lideratge actual no és l'horitzó: és el punt des del qual créixer</strong>. Aquest pla converteix els set gaps detectats en accions concretes amb horitzó 90 dies.
+  </p>
+
+  <div class="subsection-title">Com s'estructura cada pain</div>
+  <ul style="font-size:11.5px; color:var(--text-secondary); line-height:1.75; padding-left:20px; margin-bottom:14px;">
+    <li><strong>Diagnòstic.</strong> Les dades exactes del problema, extretes de l'informe complet.</li>
+    <li><strong>Accions.</strong> Llista numerada d'iniciatives. Cada acció és independent: la UAB pot prioritzar-les, descartar-ne o decidir si les executa internament o amb el nostre suport.</li>
+    <li><strong>Marcadors transversals.</strong> Les accions que pertanyen a un dels tres projectes transversals (Wikipedia, Content Farm o Reddit) porten un tag visible. Es desenvolupen al detall a les seccions T1, T2 i T3.</li>
+  </ul>
+
+  <div class="subsection-title">Tres projectes transversals</div>
+  <div class="metric-grid cols-3">
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">T1 · Wikipedia</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Font #1 de ChatGPT (1.544 cites)</div>
+      <div class="metric-card-desc">Ampliar versió CA i EN fins a paritat amb ES, registrar "L'Autònoma" com a nom alternatiu oficial, afegir secció dedicada al Sincrotró ALBA. Travessa els pains 1, 3 i 4.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">T2 · Content Farm</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Operació contínua en propietats externes</div>
+      <div class="metric-card-desc">Generació sostinguda de contingut distribuït en propietats externes (mitjans, blogs, portals especialitzats). Capa complementària a uab.cat que amplifica la cobertura semàntica i les senyals d'autoritat als LLMs. Travessa els 7 pains.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">T3 · Reddit</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Veu de comunitat per a LLMs</div>
+      <div class="metric-card-desc">Presència orgànica i coordinada en subreddits clau (r/Barcelona, r/Catalunya, r/AskAcademia, r/GradSchool). Reddit és font preferent de Gemini ("according to Reddit") i top dataset de training.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Modalitats d'execució</div>
+  <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:10px;">
+    Per a cada acció, la UAB pot decidir:
+  </p>
+  <div class="metric-grid cols-3">
+    <div class="metric-card"><div class="metric-card-label">Execució interna</div><div class="metric-card-desc" style="margin-top:8px;">L'equip de la UAB (comunicació, marketing digital, IT) executa amb autonomia.</div></div>
+    <div class="metric-card"><div class="metric-card-label">Acompanyament 498</div><div class="metric-card-desc" style="margin-top:8px;">498 dóna suport metodològic, plantilles GEO-ready, schema, revisió i mesura.</div></div>
+    <div class="metric-card accent-uab"><div class="metric-card-label">Execució 498 (transversals)</div><div class="metric-card-desc" style="margin-top:8px;">Els projectes Wikipedia, Content Farm i Reddit, pel seu caràcter editorial i extern, els executa 498 com a partner.</div></div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Nota sobre el Content Farm i Reddit.</strong> Una part important del posicionament en IA depèn de continguts que <em>no es poden publicar al web oficial</em>: comparatives autoreferencials, narratives col·loquials, divulgació, veu d'experiència. El Content Farm cobreix la dimensió editorial (contingut distribuït en propietats externes de manera sostinguda). Reddit cobreix la dimensió de comunitat (presència orgànica en subreddits clau). Junts conformen la capa "no-uab.cat" que els LLMs llegeixen.</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>3</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 4: RESUM EXECUTIU                                            -->
+<!-- ================================================================ -->
+<div class="page" id="resum">
+  <div class="section-header"><span class="section-number">02</span><h2 class="section-title">Resum executiu: matriu de prioritats</h2></div>
+
+  <p style="font-size:11.5px; color:var(--text-secondary); margin-bottom:14px;">
+    Els 7 pains ordenats per <strong>retorn esperat</strong>. Tres d'ells (P1, P3, P5) són de complexitat baixa: quick wins de tier 1. La resta requereix més coordinació però són igualment estratègics.
+  </p>
+
+  <div class="priority-matrix">
+    <div class="priority-matrix-header">Pain</div>
+    <div class="priority-matrix-header">Diagnòstic en un cop d'ull</div>
+    <div class="priority-matrix-header">Mètrica baseline</div>
+    <div class="priority-matrix-header">KPI objectiu 90d</div>
+    <div class="priority-matrix-header">Grau de complexitat</div>
+
+    <div class="priority-matrix-pain">P1 · Empleabilitat</div>
+    <div>Líder en volum (#1), però sentiment #5. Falten dades concretes que la UAB ja té publicables.</div>
+    <div>ENI ~47</div>
+    <div>ENI <strong>≥ 80</strong></div>
+    <div><span class="label-tag green">Baix</span></div>
+
+    <div class="priority-matrix-pain">P3 · Sincrotró ALBA</div>
+    <div>3 mencions a ChatGPT (gap més clar de l'estudi). La major infra científica d'Espanya és invisible com a actiu UAB.</div>
+    <div>3 / 20 mencions</div>
+    <div><strong>≥ 50</strong> mencions ChatGPT</div>
+    <div><span class="label-tag green">Baix</span></div>
+
+    <div class="priority-matrix-pain">P7 · Llunyania</div>
+    <div>319 mencions "lluny BCN" a Gemini (4× ChatGPT). Reframable amb dades de mobilitat real.</div>
+    <div>81 / 319</div>
+    <div><strong>&lt; 100</strong> mencions Gemini</div>
+    <div><span class="label-tag amber">Mig</span></div>
+
+    <div class="priority-matrix-pain">P5 · Microcredencials</div>
+    <div>UAB i UB empatades a Gemini (40.2 vs 40.1). UOC creix (849 resp Gemini). Risc competitiu.</div>
+    <div>BIS 40.2 Gemini</div>
+    <div>BIS <strong>≥ 44</strong> Gemini</div>
+    <div><span class="label-tag amber">Mig</span></div>
+
+    <div class="priority-matrix-pain">P2 · Inclusivitat</div>
+    <div>BIS 50.4 ChatGPT (líder absolut +8.6 UB), però 1 sola resposta a Gemini. Territori dominable.</div>
+    <div>279 / 1 resp</div>
+    <div><strong>≥ 30</strong> resp Gemini (indirectes)</div>
+    <div><span class="label-tag green">Baix</span></div>
+
+    <div class="priority-matrix-pain">P4 · Naming</div>
+    <div>ChatGPT diu "Universidad" (ES) per defecte (Wikipedia ES). "L'Autònoma" inexistent (1 menció total).</div>
+    <div>954 CA / 1.104 ES</div>
+    <div><strong>Paritat</strong> CA-ES a ChatGPT</div>
+    <div><span class="label-tag amber">Mig</span></div>
+
+    <div class="priority-matrix-pain">P6 · Awareness</div>
+    <div>UB guanya quan la IA recomana sense comparar (ratio 0.76). Falta contingut genèric/divulgatiu UAB.</div>
+    <div>Ratio 0.76</div>
+    <div>Ratio <strong>≥ 1.0</strong></div>
+    <div><span class="label-tag amber">Mig</span></div>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>4</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 5: PAIN 1: EMPLEABILITAT                                    -->
+<!-- ================================================================ -->
+<div class="page" id="pain-1">
+  <div class="pain-header">
+    <div class="pain-num">1</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 01 · Employability Narrative Index (ENI)</div>
+      <h2 class="pain-title">Som líders en volum, però el sentiment es queda neutre</h2>
+      <div class="pain-tags">
+        <span class="label-tag green">Complexitat: Baixa</span>
+        <span class="label-tag uab">Tier 1</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>La UAB és <strong>#1 en mencions d'empleabilitat</strong> (574 mencions, 1.3× la UB, 1.4× Carlos III). Però el sentiment és +0.448, el més baix del top 6. Carlos III (+0.534), Navarra (+0.529), UPC (+0.507), UB (+0.498) i UOC (+0.485) en parlen amb to més positiu. <strong>La causa és clara</strong>: pràcticament zero mencions de dades concretes (no apareix "% inserció a 6 mesos", "salari mitjà", "partners empresa"). La narrativa és tipus "té borsa de treball i pràctiques" sense xifres. <strong>L'observatori d'inserció de la UAB ja té aquestes dades</strong>, només cal publicar-les amb estructura GEO-ready. Potencial: duplicar l'ENI a 80+ en 3 mesos.</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Publicar a uab.cat les dades de l'Observatori d'Inserció</div>
+        <div class="action-desc">% inserció a 6 mesos per grau, salari mediana per àrea, top 50 empleadors UAB. Les dades existeixen, falta la pàgina pública estructurada que la IA pugui llegir.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Crear pàgina <code>/empleabilitat-dades</code> amb taula filtrable</div>
+        <div class="action-desc">Hub unificat per a totes les dades d'inserció. Filtres per grau, àrea i any. JSON-LD <code>Dataset</code> per cada bloc de dades, els crawlers d'IA prioritzen contingut estructurat.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Afegir FAQs amb xifres concretes (FAQPage schema)</div>
+        <div class="action-desc">"Quin és el % d'inserció a 6 mesos del grau de…", "Quin és el salari mitjà d'un graduat en…". Cada pregunta amb resposta breu + dada. <code>FAQPage</code> és un dels schemas més ben llegits per ChatGPT.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Auditar les dades disponibles a l'Observatori</div>
+        <div class="action-desc">Inventari de què hi ha publicat vs què està en informes interns no públics. Transformar els no públics en pàgines GEO-optimitzades. Identificar gaps temàtics i dimensions noves (sectors, mobilitat geogràfica post-grau, etc.).</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: comparatives "% inserció UAB vs sectorial"</div>
+        <div class="action-desc">Peces editorials al Content Farm, distribuïdes en propietats externes (mitjans econòmics, blogs de carrera), que contextualitzen les dades d'inserció UAB dins el sistema espanyol amb referències directes a competidors. Format que la UAB no pot publicar al seu web oficial. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>5</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 6: PAIN 2: INCLUSIVITAT GEMINI                              -->
+<!-- ================================================================ -->
+<div class="page" id="pain-2">
+  <div class="pain-header">
+    <div class="pain-num">2</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 02 · Persona pare/mare inclusivitat</div>
+      <h2 class="pain-title">Líders absoluts a ChatGPT, invisibles a Gemini</h2>
+      <div class="pain-tags">
+        <span class="label-tag green">Complexitat: Baixa</span>
+        <span class="label-tag uab">Tier 2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>El perfil "pare/mare inclusivitat" (famílies amb fills amb TDAH, ansietat, necessitats especials) és el perfil <strong>més fort de la UAB a ChatGPT</strong>: 279 respostes amb BIS 50.4, <strong>+8.6 punts sobre la UB</strong>, la distància més gran de tots els perfils. Però a Gemini només té <strong>1 sola resposta</strong>. És cert que Gemini té una limitació de motor amb aquest perfil (UPC i UPF també tenen 1 resposta), però <strong>Gemini sí indexa uab.cat</strong>. La via no és optimitzar per a queries d'inclusivitat directes, el motor no les processa bé. La via és <strong>capturar aquest públic via queries indirectes</strong> ("universitats amb suport psicològic", "millor acompanyament universitari", "campus segurs"). Aquí Gemini sí respon.</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Cluster de contingut "indirecte" a uab.cat</div>
+        <div class="action-desc">Tres pàgines noves: <code>/suport-psicologic</code>, <code>/acolliment-tdah</code>, <code>/erasmus-necessitats-especials</code>. Tematitzades per respondre queries genèriques de famílies, no específiques d'inclusivitat. Sortida natural d'uab.cat → respostes Gemini.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Structured data: FAQPage + EducationalOrganization amb especialització en suport</div>
+        <div class="action-desc">A cada pàgina del cluster, JSON-LD <code>EducationalOrganization</code> amb propietats que destaquin serveis de suport (Servei d'Atenció a l'Estudiant, plans d'acolliment). FAQPage amb preguntes formulades com les que fan les famílies a la IA.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: secció famílies i orientació</div>
+        <div class="action-desc">Peces al Content Farm publicades en propietats externes (mitjans de famílies, blogs d'orientació, portals d'educació) que recomanen la UAB per a perfils sensibles. Veu externa que cap pàgina pròpia pot adoptar. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Reddit: presència en subreddits de famílies i suport</div>
+        <div class="action-desc">Threads i posts orgànics a r/ADHD, r/Parenting i r/AskAcademia que connecten la UAB amb suport a estudiants amb necessitats especials. Gemini és el motor amb el gap (1 sola resposta) i alhora el que més pondera Reddit com a font: aquesta és la palanca principal per tancar la distància. Detall a T3.</div>
+        <div class="action-tags"><span class="label-tag uab">T3 Reddit</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <p><strong>Per què aquest pain és estratègic.</strong> El perfil pare/mare inclusivitat és un territori <em>únic</em> de la UAB, cap altra universitat el domina. A ChatGPT BIS 50.4, a 8.6 punts sobre la UB. Replicar aquest lideratge a Gemini significa fer-lo defensable a llarg termini abans que cap competidor el reclami.</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>6</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 7: PAIN 3: SINCROTRÓ ALBA                                   -->
+<!-- ================================================================ -->
+<div class="page" id="pain-3">
+  <div class="pain-header">
+    <div class="pain-num">3</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 03 · Recerca i infraestructura</div>
+      <h2 class="pain-title">El Sincrotró ALBA està desconnectat de la UAB per la IA</h2>
+      <div class="pain-tags">
+        <span class="label-tag green">Complexitat: Baixa</span>
+        <span class="label-tag uab">Tier 1</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>El Sincrotró ALBA, <strong>la major infraestructura científica d'Espanya</strong>, a 5 minuts del campus de Bellaterra, té <strong>3 mencions a ChatGPT i 20 a Gemini</strong>. És el <em>gap més clar de tot l'estudi</em>. La causa no és perceptiva: és de contingut. Si no hi ha pàgines a uab.cat que connectin explícitament ALBA amb la UAB (projectes conjunts, investigadors UAB que el fan servir, papers, premis), la IA no pot fer la connexió. La solució és directa: <strong>crear el contingut que manca</strong>. Pot fer pujar l'RVI per àrea (Research Visibility Index) de ~25 a 50+.</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Pàgina <code>/sincrotro-alba</code> a uab.cat</div>
+        <div class="action-desc">Pàgina dedicada amb: història del projecte conjunt UAB-CSIC-Generalitat, línies de recerca actives, investigadors UAB que el fan servir, papers publicats, projectes ERC, patents. La pàgina ha d'explicitar la relació institucional UAB ↔ ALBA.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">JSON-LD ResearchOrganization vinculant ALBA ↔ UAB</div>
+        <div class="action-desc">Propietats <code>parentOrganization</code> / <code>memberOf</code> / <code>affiliation</code> que estableixin la relació formal en el graf de coneixement. Implementar tant a la pàgina UAB com (si es pot coordinar) a la web d'ALBA.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Afegir secció ALBA a Wikipedia UAB (ES / CA / EN)</div>
+        <div class="action-desc">La pàgina de Wikipedia de la UAB hauria d'incloure una secció pròpia sobre el Sincrotró ALBA amb referències a publicacions científiques. Wikipedia és la font #1 de ChatGPT (1.544 cites). Detall a T1.</div>
+        <div class="action-tags"><span class="label-tag uab">T1 Wikipedia</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Cas d'estudi anual "UAB + ALBA"</div>
+        <div class="action-desc">Publicació anual amb dades: número d'investigadors UAB que han fet servir ALBA, hores assignades, papers, projectes Horizon Europe i ERC vinculats. Format que pot replicar-se cada any i alimentar premsa.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: divulgació científica ALBA-UAB</div>
+        <div class="action-desc">Peces al Content Farm distribuïdes en mitjans de divulgació científica (SINC, Materia, Investigación y Ciencia, Nature blogs ES) sobre projectes concrets UAB-ALBA, investigadors i resultats publicables. La premsa especialitzada és font preferent per a queries de recerca a ChatGPT i Gemini. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-body">
+        <div class="action-title">Reddit: AMAs amb investigadors UAB que treballen a ALBA</div>
+        <div class="action-desc">AMAs coordinades a r/AskScience, r/AskAcademia i r/Physics amb investigadors UAB que fan servir el Sincrotró. Format conversacional que estableix la connexió investigador → ALBA → UAB en una de les fonts que els LLMs ponderen amb més pes per a queries de recerca. Detall a T3.</div>
+        <div class="action-tags"><span class="label-tag uab">T3 Reddit</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>7</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 8: PAIN 4: NAMING                                           -->
+<!-- ================================================================ -->
+<div class="page" id="pain-4">
+  <div class="pain-header">
+    <div class="pain-num">4</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 04 · Nom oficial i identitat</div>
+      <h2 class="pain-title">El motor decideix com s'anomena la UAB, no la UAB</h2>
+      <div class="pain-tags">
+        <span class="label-tag amber">Complexitat: Mitjana</span>
+        <span class="label-tag uab">Tier 3</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>Cada motor anomena la UAB en un idioma diferent. <strong>ChatGPT</strong> diu "Universidad Autònoma de Barcelona" (ES) <strong>1.104 vegades</strong> vs "Universitat" (CA) 954. <strong>Gemini</strong> al revés: CA 2.595 vs ES 521. La causa: ChatGPT depèn de Wikipedia ES (més extensa que la catalana), Gemini depèn d'uab.cat (català natiu). I el nom col·loquial <strong>"L'Autònoma"</strong> (com els catalans coneixen la universitat) és <strong>inexistent per a la IA</strong>: 0 mencions ChatGPT, 1 Gemini. <strong>L'aposta institucional ha de ser el naming oficial</strong> i corregir activament les fonts que el contradiuen.</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Ampliar Wikipedia CA + EN fins a paritat amb ES</div>
+        <div class="action-desc">La pàgina ES de Wikipedia és més llarga i més estructurada que la CA, i per això ChatGPT prioritza el nom castellà. Objectiu: paritat en llargada, estructura, seccions i fonts citades a CA i EN. Detall a T1.</div>
+        <div class="action-tags"><span class="label-tag uab">T1 Wikipedia</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Registrar "L'Autònoma" com a nom alternatiu oficial</div>
+        <div class="action-desc">A Wikipedia: incloure "L'Autònoma" com a primer alias al lede de la pàgina. A uab.cat: schema <code>Organization.alternateName</code> amb la forma col·loquial. Comunicació institucional que la usi de forma consistent.</div>
+        <div class="action-tags"><span class="label-tag uab">T1 Wikipedia</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Auditar la comunicació institucional</div>
+        <div class="action-desc">Si la UAB s'autodefineix de forma consistent en català (sense renunciar a versions ES/EN al seu web), els mitjans en castellà tendiran a seguir el naming oficial. Avui la comunicació no és prou consistent.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Pla de fonts: identificar les 20 fonts top de ChatGPT</div>
+        <div class="action-desc">Llistar les 20 fonts que ChatGPT cita més quan parla de la UAB (Wikipedia ES, Times Higher Education, QS, etc.) i auditar en quin idioma usen el nom. Per cada font on el naming sigui incorrecte, accions específiques: edicions a Wikipedia, comunicació amb el portal, suggeriments a editors.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: peces que normalitzin "L'Autònoma" i "Universitat" en castellà</div>
+        <div class="action-desc">Contingut al Content Farm publicat en propietats externes en castellà, que usi de forma consistent el naming oficial "Universitat Autònoma de Barcelona" i la denominació col·loquial "L'Autònoma". Massa crítica externa que normalitza el naming en fonts que els LLMs llegeixen. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>8</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 9: PAIN 5: MICROCREDENCIALS / UOC                           -->
+<!-- ================================================================ -->
+<div class="page" id="pain-5">
+  <div class="pain-header">
+    <div class="pain-num">5</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 05 · Formació contínua i microcredencials</div>
+      <h2 class="pain-title">La UOC ja iguala la UAB en formació contínua a Gemini</h2>
+      <div class="pain-tags">
+        <span class="label-tag amber">Complexitat: Mitjana</span>
+        <span class="label-tag uab">Tier 2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>A ChatGPT, la UAB lidera formació contínua amb BIS 45.3 (+4.3 sobre la UB). A <strong>Gemini la distància desapareix</strong>: BIS UAB 40.2 vs UB 40.1, pràcticament empatats. I la <strong>UOC creix amb força</strong>: és #2 al sector global (BIS 42.7), té 849 respostes a Gemini (més que a ChatGPT) i ha estat fent una aposta forta per microcredencials. Si no s'actua, en 12-18 mesos la UOC pot superar la UAB en aquest territori a Gemini. La causa probable: les pàgines de microcredencials a uab.cat estan menys ben indexades per Gemini que les d'uoc.edu. La narrativa també és diferent: la UOC és "només contínua i online", la UAB no comunica prou el seu avantatge ("universitat de recerca amb campus presencial que també fa contínua").</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Auditar la indexació de microcredencials a Gemini</div>
+        <div class="action-desc">Diagnòstic tècnic: quines pàgines de microcredencials apareixen a Google Search (porta de Gemini) i quines no. Probablement el problema és estructural (URL dinàmiques, contingut JS, manca de schema). Sense aquest pas, les altres accions tindran poc efecte.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">JSON-LD Course + EducationalOccupationalProgram per cada microcredencial</div>
+        <div class="action-desc">Cada pàgina de microcredencial amb schema complet: <code>Course</code> per al curs individual + <code>EducationalOccupationalProgram</code> per al programa global. Inclou competències, durada, preu, sortides professionals, prerequisits, instructor.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Optimitzar el format de les pàgines</div>
+        <div class="action-desc">Reestructurar cada pàgina de microcredencial amb seccions estandarditzades: què aprendràs, per a qui, durada, preu, format (presencial / online / híbrid), sortides, com t'inscrius. FAQs específiques per programa. Comparativa amb opcions equivalents al sistema.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Posicionament narratiu UAB vs UOC</div>
+        <div class="action-desc">Treballar un missatge clar i repetible: <em>"La UAB és la universitat de recerca amb campus presencial que també fa formació contínua. La UOC és només contínua i online."</em> Aquest missatge ha d'aparèixer a uab.cat (en context de microcredencials), a Wikipedia, a entrevistes i articles d'opinió.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: comparatives microcredencials UAB vs UOC</div>
+        <div class="action-desc">Peces al Content Farm en mitjans de carrera professional i reskilling (Equipos&Talento, Computing, El Confidencial Empresas) que comparen UAB vs UOC en àrees clau (IA, dades, sostenibilitat) i posicionen la UAB com a "universitat de recerca amb campus presencial que també fa contínua". Format autoreferencial que la UAB no pot publicar al seu web. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>9</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 10: PAIN 6: FUNNEL AWARENESS                                -->
+<!-- ================================================================ -->
+<div class="page" id="pain-6">
+  <div class="pain-header">
+    <div class="pain-num">6</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 06 · Funnel awareness</div>
+      <h2 class="pain-title">Quan la IA no compara, surt la UB. La UAB no es coneix de memòria.</h2>
+      <div class="pain-tags">
+        <span class="label-tag amber">Complexitat: Mitjana</span>
+        <span class="label-tag uab">Tier 3</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>En consideration + comparison (quan la IA compara opcions), la UAB <strong>guanya per goleada</strong>: ratio UAB/UB de <strong>1.42 a ChatGPT, 1.28 a Gemini</strong>. Però en <strong>awareness + recommendation</strong> (quan la IA dóna un nom ràpid sense comparar), la UB guanya: <strong>ratio 0.76</strong> (94 vs 71 a ChatGPT, 111 vs 90 a Gemini). La causa probable: la UB té més notorietat històrica ("la universitat de Barcelona") i quan la IA respon una pregunta oberta sense criteris, surt el nom més comú. <strong>La UAB necessita contingut genèric i "obvi"</strong>, en llenguatge fàcil, sobre preguntes molt menys específiques i de descobriment, perquè la IA tingui matèria prima per recomanar-la sense haver de comparar.</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Hub <code>/per-que-uab</code> amb 10-15 guies en llenguatge fàcil</div>
+        <div class="action-desc">Pàgines curtes, divulgatives, sobre preguntes que avui no tenen pàgina pròpia: "què és la UAB", "com s'arriba", "què s'hi estudia", "qui hi estudia", "quin és el preu", "què la fa diferent". Llenguatge accessible, no institucional. Aquests continguts són els que la IA usa en fase awareness.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Articles "Universitats a Catalunya" / "Universitats de recerca a Espanya" autoreferencials</div>
+        <div class="action-desc">Pàgines que llisten i contextualitzen el sistema universitari, amb la UAB ben posicionada però sense ser autopromocionals. Format article informatiu que respongui les preguntes obertes que avui la IA respon amb noms d'altres universitats.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Pàgina aterratge "Universitat de Barcelona": el territori metropolità</div>
+        <div class="action-desc">Pàgina que reclama el territori "universitat ubicada a la regió metropolitana de Barcelona". No competir amb la marca "UB", establir que <em>"a Barcelona i la seva regió metropolitana hi ha diverses universitats, i la UAB n'és una"</em>. Reframing geogràfic que reclama legitimitat barcelonina.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: secció guies obvi awareness</div>
+        <div class="action-desc">Peces divulgatives al Content Farm en portals d'orientació universitària, blogs educatius i mitjans generalistes ("on estudiar a Barcelona", "universitats públiques catalanes", "guia per triar grau") on la UAB avui no apareix en fase awareness. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Reddit: massa crítica de mencions en threads d'orientació</div>
+        <div class="action-desc">Intervenció orgànica i coordinada a r/Barcelona, r/Spain i r/spainstudents en threads d'awareness ("what's a good uni in Barcelona?", "where to study X?"). Reddit és el territori natural de les recomanacions no comparatives, que és exactament on avui guanya la UB amb ratio 0.76. Detall a T3.</div>
+        <div class="action-tags"><span class="label-tag uab">T3 Reddit</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <p><strong>Format clau: subministrar guies "llestes per publicar".</strong> Una part del hub <code>/per-que-uab</code> pot ser un pack de guies redactades i estructurades GEO-ready que la UAB publiqui amb la seva veu institucional. Aquest enfocament redueix el temps de posada en marxa i garanteix consistència del schema i les FAQs.</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>10</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 11: PAIN 7: LLUNYANIA                                       -->
+<!-- ================================================================ -->
+<div class="page" id="pain-7">
+  <div class="pain-header">
+    <div class="pain-num">7</div>
+    <div class="pain-title-block">
+      <div class="pain-eyebrow">Pain 07 · Percepció de llunyania</div>
+      <h2 class="pain-title">"Lluny de Barcelona". Gemini ho amplifica 4× més que ChatGPT</h2>
+      <div class="pain-tags">
+        <span class="label-tag amber">Complexitat: Mitjana</span>
+        <span class="label-tag uab">Tier 2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="diagnostic-box">
+    <div class="diagnostic-title">Diagnòstic</div>
+    <p>"Lluny de Barcelona" té <strong>81 mencions a ChatGPT i 319 a Gemini</strong>, una percepció amplificada quatre vegades pel motor de Google. No és confusió: és una representació consolidada. Però és <strong>una percepció corregible amb dades</strong>. Pl. Catalunya → UAB amb FGC: ~28 minuts. Pl. Catalunya → UB Zona Universitària amb metro: ~22 minuts. <strong>Són temps gairebé equivalents</strong>. La UAB ha de posicionar-se com a "<strong>universitat de Barcelona amb campus integrat</strong>", no com a universitat "fora" de la ciutat, i fer-ho amb dades concretes que la IA pugui citar.</p>
+  </div>
+
+  <div class="subsection-title">Accions</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Pàgina <code>/com-arribar</code> amb dades concretes de mobilitat</div>
+        <div class="action-desc">Taula comparativa: Pl. Catalunya → UAB amb FGC (28 min) vs Pl. Catalunya → UB Zona Universitària amb metro (22 min). Sants → UAB. Sagrera → UAB. Diferents punts d'origen de Barcelona amb temps reals porta-porta. FAQs amb cada combinació.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Vídeo tour campus + Vila Universitària</div>
+        <div class="action-desc">Vídeo embedded a uab.cat (i a YouTube indexable) amb transcripció textual estructurada. El campus integrat (zones verdes, Vila Universitària, serveis) és l'<strong>avantatge competitiu clar</strong> de la UAB segons l'auditoria: +6.2 BIS vs UB en línia "vida de campus". El vídeo dóna sortida visual a aquest avantatge.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Reformulació de metadades i opening de pàgines clau</div>
+        <div class="action-desc">A les pàgines més indexades d'uab.cat, substituir "universitat a Bellaterra" per "<strong>universitat de Barcelona amb campus integrat a Bellaterra</strong>" o equivalent. Description tags, H1s, opening paragraphs. Cada pàgina que es revisi planta una nova etiqueta semàntica per a la IA.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Reframing narratiu coordinat</div>
+        <div class="action-desc">Guió de comunicació institucional que pivota d'"fora de Barcelona" a "Barcelona amb campus": premsa, Wikipedia, comunicació institucional, entrevistes. No una campanya puntual, un canvi de framing sostingut a totes les superfícies de marca.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-body">
+        <div class="action-title">Content Farm: comparatives de mobilitat amb altres campus</div>
+        <div class="action-desc">Peces al Content Farm en mitjans locals i blogs de mobilitat (Time Out Barcelona, La Vanguardia Local, Betevé) amb comparatives porta-porta UAB vs altres campus i guies de transport. Format que la UAB no pot publicar al seu web perquè inclou referències a la UB. Detall a T2.</div>
+        <div class="action-tags"><span class="label-tag uab">T2 Content Farm</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-body">
+        <div class="action-title">Reddit: testimonials de mobilitat i vida de campus</div>
+        <div class="action-desc">Posts d'experiència i respostes orgàniques a threads tipus "is UAB too far from Barcelona?" a r/Barcelona i r/Spain. La veu de comunitat (FGC, 28 minuts, Vila Universitària) contrarestra les 319 mencions de "lluny BCN" a Gemini amb autoritat experiencial. Detall a T3.</div>
+        <div class="action-tags"><span class="label-tag uab">T3 Reddit</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>11</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 12: TRANSVERSAL 1: WIKIPEDIA                                -->
+<!-- ================================================================ -->
+<div class="page" id="wikipedia">
+  <div class="section-header"><span class="section-number">T1</span><h2 class="section-title">Projecte transversal · Wikipedia</h2></div>
+
+  <p style="font-size:12px; color:var(--text-secondary); margin-bottom:14px;">
+    Wikipedia és la <strong>font #1 que ChatGPT cita</strong> quan parla de la UAB: <strong>1.544 cites</strong>, més que uab.cat (1.021). El nom amb què ChatGPT s'hi refereix, les dades que utilitza per justificar recomanacions i les seccions que destaca depenen directament del que hi ha a Wikipedia. Cap altra acció d'aquest pla té un multiplicador d'efecte tan gran sobre ChatGPT.
+  </p>
+
+  <div class="metric-grid cols-3">
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Cites ChatGPT</div>
+      <div class="metric-card-value">1.544</div>
+      <div class="metric-card-desc">Font #1 quan parla de la UAB. Per davant d'uab.cat (1.021) i de tots els portals de rànkings.</div>
+    </div>
+    <div class="metric-card accent-warning">
+      <div class="metric-card-label">Wikipedia ES vs CA</div>
+      <div class="metric-card-value">~2×</div>
+      <div class="metric-card-desc">La versió ES és aproximadament el doble de llarga i amb més seccions que la CA. Per això ChatGPT diu "Universidad" majoritàriament.</div>
+    </div>
+    <div class="metric-card accent-warning">
+      <div class="metric-card-label">Wikipedia EN</div>
+      <div class="metric-card-value">Pobre</div>
+      <div class="metric-card-desc">Versió incompleta. Impacte directe sobre IMS (Internationalization Score) i la visibilitat fora del mercat espanyol.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Què inclou aquest projecte</div>
+  <div class="action-list">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-body">
+        <div class="action-title">Ampliar Wikipedia CA i EN fins a paritat amb ES</div>
+        <div class="action-desc">Paritat en seccions (història, govern, facultats, recerca, internacionalització, ALBA, vida universitària, dades clau), referències citables i imatges. Aquest pas és el principal driver per traslladar el naming UAB cap a la forma catalana a ChatGPT, i per millorar la visibilitat internacional.</div>
+        <div class="action-tags"><span class="label-tag grey">Vinculat a P4 Naming</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-body">
+        <div class="action-title">Registrar "L'Autònoma" com a nom alternatiu oficial al lede</div>
+        <div class="action-desc">A les tres versions (CA, ES, EN), incloure "L'Autònoma" com a primer nom alternatiu reconegut a l'inici de l'article. Aquest pas trasllada la denominació col·loquial al graf semàntic que els LLMs construeixen.</div>
+        <div class="action-tags"><span class="label-tag grey">Vinculat a P4 Naming</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-body">
+        <div class="action-title">Afegir secció dedicada al Sincrotró ALBA</div>
+        <div class="action-desc">Secció pròpia (no només una menció) que estableixi la connexió ALBA ↔ UAB amb referències a publicacions, projectes conjunts i historial institucional. Aquest és el camí més directe per fer pujar les mencions ALBA de 3 a 50+ a ChatGPT.</div>
+        <div class="action-tags"><span class="label-tag grey">Vinculat a P3 ALBA</span></div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-body">
+        <div class="action-title">Cobertura mediàtica que generi cites Wikipedia</div>
+        <div class="action-desc">Wikipedia exigeix fonts secundàries citables. Les notes de premsa coordinades (P1, P3) són la matèria primera per generar edicions sostenibles a Wikipedia. Sense premsa nova, els edits es revertien per manca de fonts. Per això P1 (dades inserció) i T1 (Wikipedia) treballen junts.</div>
+        <div class="action-tags"><span class="label-tag grey">Vinculat a P1 Empleabilitat</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <p><strong>Mètode.</strong> Les edicions a Wikipedia han de seguir la política d'absència de conflicte d'interès. No s'edita "des de" la UAB: es prepara contingut citable a fonts externes (premsa, papers, informes oficials) i s'incorpora a Wikipedia via editors independents. Aquesta és una de les raons per què aquest projecte té caràcter transversal i s'executa com un partner extern.</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>12</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 13: TRANSVERSAL 2: CONTENT FARM CONTINUO                     -->
+<!-- ================================================================ -->
+<div class="page" id="content-farm">
+  <div class="section-header"><span class="section-number">T2</span><h2 class="section-title">Projecte transversal · Content Farm</h2></div>
+
+  <p style="font-size:12px; color:var(--text-secondary); margin-bottom:14px;">
+    Operació contínua de generació de contingut distribuït en <strong>propietats externes</strong> amb l'objectiu de multiplicar les senyals d'autoritat i citabilitat de la UAB en els LLMs. Funciona com a <strong>capa complementària al contingut propi</strong>: amplifica la cobertura semàntica de les entitats clau, reforça la presència en fonts que els motors generatius consideren rellevants i accelera la consolidació de la UAB com a referència en les respostes conversacionals.
+  </p>
+
+  <div class="subsection-title">Per què operació contínua</div>
+  <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:10px;">
+    No és un pilot puntual: és una <strong>operació sostinguda en el temps</strong>. Els LLMs renoven la seva dieta de continguts de forma constant (re-training, web crawling, fine-tuning amb dades recents). Una intervenció única queda diluïda. Un programa continu garanteix que la UAB tingui <strong>senyal contínua de presència, frescor i autoritat</strong> en les fonts que alimenten els motors generatius. El pilot de 90 dies serveix com a fase de validació i calibració abans d'escalar a operació recurrent.
+  </p>
+
+  <div class="metric-grid cols-3">
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Capa</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Complementària</div>
+      <div class="metric-card-desc">No substitueix uab.cat (font #1 a Gemini). L'amplifica: cobertura semàntica fora del domini propi, en propietats on els LLMs ja confien.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Objectiu</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Autoritat + citabilitat</div>
+      <div class="metric-card-desc">Multiplicar les senyals que els motors generatius interpreten com a indicadors d'autoritat. Augmentar la probabilitat que la UAB sigui citada espontàniament.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Cobertura</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Entitats clau</div>
+      <div class="metric-card-desc">Cada peça reforça una entitat concreta (ALBA, microcredencials, mobilitat, empleabilitat, "L'Autònoma") amb context, dades i comparativa.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Verticals i propietats externes diana</div>
+
+  <table>
+    <thead>
+      <tr><th>Vertical</th><th>Tipus de contingut</th><th>Propietats externes diana</th><th>Pains</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Comparatives sectorials</strong></td>
+        <td>Articles que comparen UAB amb UB, UPC, UOC en àrees concretes (recerca, microcredencials, empleabilitat).</td>
+        <td>Equipos&amp;Talento, El Confidencial Empresas, Computing, RRHHpress, El Economista</td>
+        <td>P1, P5</td>
+      </tr>
+      <tr>
+        <td><strong>Mobilitat i territori BCN</strong></td>
+        <td>Comparatives porta-porta, guies de transport, reframing geogràfic "Barcelona amb campus integrat".</td>
+        <td>Time Out Barcelona, La Vanguardia Local, Betevé, blogs urbanisme i mobilitat</td>
+        <td>P7</td>
+      </tr>
+      <tr>
+        <td><strong>Divulgació científica</strong></td>
+        <td>Peces sobre projectes UAB-ALBA, recerca destacada, casos d'investigadors. Format divulgatiu accessible.</td>
+        <td>SINC, Materia (El País), Nature blogs ES, Investigación y Ciencia, agencies divulgació</td>
+        <td>P3</td>
+      </tr>
+      <tr>
+        <td><strong>Famílies i orientació</strong></td>
+        <td>Articles per a famílies amb perfils sensibles (TDAH, ansietat, necessitats especials).</td>
+        <td>Eduforics, Faros Sant Joan de Déu, Ser Padres, Educar Hoy, blogs de famílies</td>
+        <td>P2, P6</td>
+      </tr>
+      <tr>
+        <td><strong>Guies obvi awareness</strong></td>
+        <td>Contingut divulgatiu sobre "on estudiar a Barcelona", "universitats públiques catalanes", "guia per triar grau".</td>
+        <td>Portals d'orientació universitària, blogs educatius, mitjans generalistes</td>
+        <td>P4, P6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="subsection-title">Mètode i mètrica</div>
+  <div class="metric-grid cols-2">
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Cadència</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">15-20 peces pilot · 8-12/mes recurrent</div>
+      <div class="metric-card-desc">Pilot 90 dies amb 3-4 peces per vertical. Després operació contínua amb cadència mensual sostinguda. Cada peça GEO-ready (schema, dades, naming consistent).</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">KPI principal</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Senyals d'autoritat i citabilitat</div>
+      <div class="metric-card-desc">Mesura via re-auditoria GEORadar a T+90: aparició de peces en respostes ChatGPT/Gemini, augment de fonts citades, canvi de narrativa als pains 1-7.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Naming oficial transversal</div>
+  <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:10px;">
+    Totes les peces del Content Farm, independentment del vertical, usen el naming oficial "<strong>Universitat Autònoma de Barcelona</strong>" (forma catalana) també en peces redactades en castellà, i incorporen "<strong>L'Autònoma</strong>" com a denominació col·loquial. La consistència massiva en propietats externes és el mecanisme més efectiu per traslladar l'aposta de naming (P4) a les fonts que els LLMs llegeixen.
+  </p>
+
+  <div class="callout">
+    <p><strong>Per què operació contínua i no pilot tancat.</strong> El posicionament GEO no és estàtic. Els LLMs es re-entrenen, indexen contingut nou de forma constant i ajusten la jerarquia de fonts. Una operació tancada de 90 dies pot validar el model, però el guany es dilueix sense renovació. La proposta és <strong>pilot 90 dies + operació contínua</strong>: el primer trimestre valida verticals i KPIs; a partir del mes 4, cadència sostinguda de 8-12 peces/mes, expansió a verticals nous (sostenibilitat, internacionalització, postgrau) i mesura trimestral.</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>13</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 14: TRANSVERSAL 3: REDDIT                                    -->
+<!-- ================================================================ -->
+<div class="page" id="reddit">
+  <div class="section-header"><span class="section-number">T3</span><h2 class="section-title">Projecte transversal · Reddit</h2></div>
+
+  <p style="font-size:12px; color:var(--text-secondary); margin-bottom:14px;">
+    Reddit s'ha convertit en una de les fonts <strong>més utilitzades pels LLMs</strong> per construir respostes que combinen opinió, experiència i comparativa. Gemini (via la integració de Google amb el patró "according to Reddit") i ChatGPT extreuen senyals de Reddit per a queries d'orientació, decisió i experiència universitària. Avui la UAB no té presència coordinada en aquesta capa. El projecte Reddit proposa una presència orgànica i sostinguda en els subreddits clau, amb un model anàleg al desplegat amb èxit en altres projectes de marca corporativa.
+  </p>
+
+  <div class="subsection-title">Per què Reddit alimenta els LLMs</div>
+  <div class="metric-grid cols-3">
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Font de training</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Top-tier dataset</div>
+      <div class="metric-card-desc">Reddit és una de les fonts publicades a la dieta de training dels models grans. Tot el que es publica avui pot influir respostes futures.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Patró d'autoritat</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">"According to Reddit"</div>
+      <div class="metric-card-desc">Google ha integrat Reddit com a senyal preferent en respostes generatives. Els threads ben puntuats sobre la UAB poden aparèixer citats explícitament.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Veu de comunitat</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Experiència real</div>
+      <div class="metric-card-desc">Els LLMs valoren contingut amb to d'experiència ("I studied at UAB and..."). Aquesta veu no es pot generar des d'uab.cat ni des de les peces editorials del Content Farm.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Subreddits diana</div>
+  <table>
+    <thead>
+      <tr><th>Subreddit</th><th>Audiència</th><th>Tipus de contingut</th><th>Pains coberts</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>r/Barcelona</strong></td>
+        <td>~400K membres. Audiència internacional + local.</td>
+        <td>Threads sobre mobilitat (com arribar a la UAB), vida d'estudiant, recomanacions.</td>
+        <td>P7, P6</td>
+      </tr>
+      <tr>
+        <td><strong>r/Catalunya</strong></td>
+        <td>~50K membres. Audiència catalanoparlant.</td>
+        <td>Naming "L'Autònoma" en context natural, formació contínua, opcions d'estudi.</td>
+        <td>P4, P5</td>
+      </tr>
+      <tr>
+        <td><strong>r/spain · r/AskAcademia</strong></td>
+        <td>Audiència ES + internacional acadèmica.</td>
+        <td>Recerca, doctorats, ALBA, comparatives amb altres universitats del sistema.</td>
+        <td>P3, P1</td>
+      </tr>
+      <tr>
+        <td><strong>r/GradSchool · r/PhD</strong></td>
+        <td>Audiència internacional postgrau.</td>
+        <td>Experiències de doctorat a la UAB, posicionament internacional, ALBA com a atractiu.</td>
+        <td>P3</td>
+      </tr>
+      <tr>
+        <td><strong>r/spainstudents · r/universidad</strong></td>
+        <td>Audiència estudiantil ES.</td>
+        <td>Awareness (per què UAB), microcredencials, suport a l'estudiant, vida de campus.</td>
+        <td>P2, P5, P6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="subsection-title">Formats de presència</div>
+  <div class="metric-grid cols-2">
+    <div class="metric-card">
+      <div class="metric-card-label">AMA programades</div>
+      <div class="metric-card-desc" style="margin-top:6px;">"Ask Me Anything" amb investigadors UAB (recerca a ALBA, doctorats, projectes ERC) coordinades amb r/AskScience i r/AskAcademia. Volum: 2-3 per trimestre.</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">Threads de resposta</div>
+      <div class="metric-card-desc" style="margin-top:6px;">Resposta orgànica a queries existents sobre UAB ("is UAB worth it?", "how to get to UAB?", "best master in X at UAB?") des de perfils amb context i experiència autèntica.</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">Posts d'experiència</div>
+      <div class="metric-card-desc" style="margin-top:6px;">Contingut narratiu sobre la vida al campus, transport, programes específics, microcredencials. Format que humanitza i contextualitza les dades dures d'uab.cat.</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">Monitorització + intervenció</div>
+      <div class="metric-card-desc" style="margin-top:6px;">Detecció contínua de threads on apareix la UAB amb informació desactualitzada o errònia (especialment "lluny BCN") i intervenció amb dades concretes i citables.</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Mètode i mètrica</div>
+  <div class="metric-grid cols-2">
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">Volum pilot</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">25-35 intervencions / 90 dies</div>
+      <div class="metric-card-desc">2 AMAs, 15-20 threads de resposta orgànica, 5-8 posts d'experiència, monitorització setmanal. Coordinació 498 + xarxa de col·laboradors UAB.</div>
+    </div>
+    <div class="metric-card accent-uab">
+      <div class="metric-card-label">KPI principal</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Karma + cita en LLMs</div>
+      <div class="metric-card-desc">Threads amb karma alt (visibilitat de cara als crawlers), i aparició de Reddit com a font citada per ChatGPT/Gemini quan es repeteix l'auditoria a T+90.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>Decisió clau.</strong> Reddit té normes estrictes contra l'autopromoció. La presència UAB a Reddit ha de ser <em>orgànica i de comunitat</em>: investigadors reals fent AMAs, estudiants i alumni parlant des de l'experiència, intervencions útils i no comercials. 498 actua com a coordinador i facilitador (formació, calendari, monitorització, redacció de plantilles) però <strong>la veu és sempre humana i UAB</strong>. Sense això, Reddit penalitza i el projecte fracassa.</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>14</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 15: TANCAMENT                                                -->
+<!-- ================================================================ -->
+<div class="page" id="roadmap">
+  <div class="section-header"><span class="section-number">15</span><h2 class="section-title">Tancament</h2></div>
+
+  <p style="font-size:13px; line-height:1.75; color:var(--text-secondary); margin-bottom:16px;">
+    Aquest document recull el pla complet d'accions que es deriven de l'auditoria GEORadar. És, deliberadament, un pla extens: hi conviuen <strong>accions de naturalesa molt diferent</strong>, des de publicacions internes que es poden activar en pocs dies fins a iniciatives editorials i de comunitat que demanen coordinació sostinguda al llarg del temps.
+  </p>
+
+  <p style="font-size:13px; line-height:1.75; color:var(--text-secondary); margin-bottom:16px;">
+    Algunes peces són abordables amb autonomia per l'equip de la UAB (publicar dades ja disponibles, ampliar pàgines existents, ajustar metadades, crear clusters de contingut). Altres requereixen acompanyament metodològic: schema, JSON-LD, optimització d'indexació, posicionament narratiu, plans de fonts. I els tres projectes transversals (Wikipedia, Content Farm i Reddit) tenen, pel seu caràcter editorial i de coordinació externa, una dinàmica de partner sostingut.
+  </p>
+
+  <p style="font-size:13px; line-height:1.75; color:var(--text-secondary); margin-bottom:16px;">
+    La proposta és, per tant, <strong>modular</strong>. La UAB pot prendre les accions que es vegi capaç d'abordar internament i comptar amb nosaltres per a la resta. Cada peça del pla és independent i es pot activar de forma autònoma. Un cop tinguem definit l'abast del que voldríeu treballar plegats, prepararem una proposta econòmica detallada amb fases, lliurables i sistema de mesura.
+  </p>
+
+  <div class="callout" style="margin-top:24px;">
+    <p>Quedem a disposició per resoldre dubtes, ajustar prioritats i definir el detall operatiu de les peces que decidiu activar amb el nostre suport.</p>
+  </div>
+
+  <div style="text-align:center; margin-top:32px; padding-top:14px; border-top:1px solid var(--border);">
+    <p style="font-size:10px; color:var(--text-tertiary);">GEORadar by 498 Advisory Services · 2026</p>
+  </div>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>15</span></div>
+</div>
+
+</div><!-- /report -->
+
+</body>
+</html>
