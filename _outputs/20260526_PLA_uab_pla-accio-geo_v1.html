@@ -50,7 +50,7 @@
     .cover-brand { margin-top:40px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.1); }
     .cover-brand-info h2 { font-size:26px; font-weight:800; }
     .cover-brand-info p { font-size:12px; color:rgba(255,255,255,0.45); margin-top:4px; }
-    .cover-metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .cover-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
     .cover-metric { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); padding:20px 16px; text-align:center; border-radius:12px; }
     .cover-metric-value { font-size:34px; font-weight:900; letter-spacing:-1.5px; }
     .cover-metric-label { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:6px; }
@@ -141,6 +141,17 @@
     .kpi-baseline { font-size:10.5px; color:var(--text-secondary); }
     .kpi-target { font-size:13px; font-weight:800; color:var(--text); margin-top:4px; }
     .kpi-target span { color:var(--uab-green); }
+    /* SYNTHESIS MATRIX */
+    .synthesis-table { width:100%; border-collapse:collapse; font-size:10.5px; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .synthesis-table th { background:#f0f0f3; color:#333; padding:9px 12px; text-align:left; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:0.5px; }
+    .synthesis-table th:last-child { text-align:right; }
+    .synthesis-table td { padding:7px 12px; border-bottom:1px solid var(--border); vertical-align:middle; }
+    .synthesis-table tr:last-child td { border-bottom:none; }
+    .synthesis-table td:last-child { text-align:right; white-space:nowrap; width:110px; }
+    .synthesis-table .group-row td { background:rgba(0,105,53,0.05); font-weight:800; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--uab-green); padding:9px 12px; }
+    .synthesis-table .action-ref { font-size:9px; color:var(--text-tertiary); font-weight:700; margin-right:6px; display:inline-block; min-width:22px; }
+    .synthesis-legend { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:16px; padding:12px 14px; background:#fafafa; border-radius:8px; border:1px solid var(--border); }
+    .synthesis-legend-item { display:flex; gap:8px; align-items:center; font-size:11px; color:var(--text-secondary); }
   </style>
 </head>
 <body>
@@ -164,8 +175,8 @@
   <a class="sidebar-item" href="#wikipedia"><span class="sidebar-item-num">T1</span><span class="sidebar-item-text">Wikipedia</span></a>
   <a class="sidebar-item" href="#content-farm"><span class="sidebar-item-num">T2</span><span class="sidebar-item-text">Content Farm</span></a>
   <a class="sidebar-item" href="#reddit"><span class="sidebar-item-num">T3</span><span class="sidebar-item-text">Reddit</span></a>
-  <div class="sidebar-section">Tancament</div>
-  <a class="sidebar-item" href="#roadmap"><span class="sidebar-item-num">15</span><span class="sidebar-item-text">Tancament</span></a>
+  <div class="sidebar-section">Síntesi</div>
+  <a class="sidebar-item" href="#roadmap"><span class="sidebar-item-num">15</span><span class="sidebar-item-text">Síntesi d'accions</span></a>
 </div>
 <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
 
@@ -186,15 +197,15 @@
     <div class="cover-brand">
       <div class="cover-brand-info">
         <h2>UAB</h2>
-        <p>Roadmap 90 dies · Maig–Agost 2026</p>
+        <p>Pla d'acció · Maig 2026</p>
       </div>
     </div>
   </div>
   <div class="cover-metrics">
     <div class="cover-metric"><div class="cover-metric-value">7</div><div class="cover-metric-label">Pains</div></div>
-    <div class="cover-metric"><div class="cover-metric-value">31</div><div class="cover-metric-label">Accions</div></div>
+    <div class="cover-metric"><div class="cover-metric-value">36</div><div class="cover-metric-label">Accions</div></div>
     <div class="cover-metric"><div class="cover-metric-value">3</div><div class="cover-metric-label">Transversals</div></div>
-    <div class="cover-metric"><div class="cover-metric-value">90d</div><div class="cover-metric-label">Horitzó</div></div>
+    
   </div>
   <div style="text-align:center; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06); margin-top:12px; font-size:10px; color:rgba(255,255,255,0.2);">GEORadar by 498 Advisory Services · 2026</div>
 </div>
@@ -224,8 +235,8 @@
   <div class="index-row"><div class="index-row-left"><span class="index-num">T2</span><span class="index-name">Content Farm: contingut distribuït en propietats externes</span></div><span class="index-pages">13</span></div>
   <div class="index-row"><div class="index-row-left"><span class="index-num">T3</span><span class="index-name">Reddit: la veu de comunitat que els LLMs llegeixen</span></div><span class="index-pages">14</span></div>
 
-  <div class="index-group">Tancament</div>
-  <div class="index-row"><div class="index-row-left"><span class="index-num">15</span><span class="index-name">Tancament i propers passos</span></div><span class="index-pages">15</span></div>
+  <div class="index-group">Síntesi</div>
+  <div class="index-row"><div class="index-row-left"><span class="index-num">15</span><span class="index-name">Síntesi: matriu d'accions i modalitat d'execució</span></div><span class="index-pages">15-16</span></div>
 
   <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>2</span></div>
 </div>
@@ -238,7 +249,7 @@
   <div class="section-header"><span class="section-number">01</span><h2 class="section-title">Estructura del pla</h2></div>
 
   <p style="font-size:12px; line-height:1.7; margin-bottom:14px;">
-    L'auditoria GEORadar identifica un punt de partida sòlid: la UAB és la universitat amb millor BIS del sistema espanyol (47.1 ChatGPT / 43.7 Gemini), líder en sis línies de servei i en tots els perfils. Però <strong>el lideratge actual no és l'horitzó: és el punt des del qual créixer</strong>. Aquest pla converteix els set gaps detectats en accions concretes amb horitzó 90 dies.
+    L'auditoria GEORadar identifica un punt de partida sòlid: la UAB és la universitat amb millor BIS del sistema espanyol (47.1 ChatGPT / 43.7 Gemini), líder en sis línies de servei i en tots els perfils. Però <strong>el lideratge actual no és l'horitzó: és el punt des del qual créixer</strong>. Aquest pla converteix els set gaps detectats en accions concretes.
   </p>
 
   <div class="subsection-title">Com s'estructura cada pain</div>
@@ -299,7 +310,7 @@
     <div class="priority-matrix-header">Pain</div>
     <div class="priority-matrix-header">Diagnòstic en un cop d'ull</div>
     <div class="priority-matrix-header">Mètrica baseline</div>
-    <div class="priority-matrix-header">KPI objectiu 90d</div>
+    <div class="priority-matrix-header">KPI objectiu</div>
     <div class="priority-matrix-header">Grau de complexitat</div>
 
     <div class="priority-matrix-pain">P1 · Empleabilitat</div>
@@ -958,7 +969,7 @@
 
   <div class="subsection-title">Per què operació contínua</div>
   <p style="font-size:11.5px; color:var(--text-secondary); line-height:1.65; margin-bottom:10px;">
-    No és un pilot puntual: és una <strong>operació sostinguda en el temps</strong>. Els LLMs renoven la seva dieta de continguts de forma constant (re-training, web crawling, fine-tuning amb dades recents). Una intervenció única queda diluïda. Un programa continu garanteix que la UAB tingui <strong>senyal contínua de presència, frescor i autoritat</strong> en les fonts que alimenten els motors generatius. El pilot de 90 dies serveix com a fase de validació i calibració abans d'escalar a operació recurrent.
+    No és un pilot puntual: és una <strong>operació sostinguda en el temps</strong>. Els LLMs renoven la seva dieta de continguts de forma constant (re-training, web crawling, fine-tuning amb dades recents). Una intervenció única queda diluïda. Un programa continu garanteix que la UAB tingui <strong>senyal contínua de presència, frescor i autoritat</strong> en les fonts que alimenten els motors generatius. Una primera fase de validació i calibració permet ajustar verticals i mecàniques abans d'estabilitzar l'operació en règim recurrent.
   </p>
 
   <div class="metric-grid cols-3">
@@ -1023,13 +1034,13 @@
   <div class="metric-grid cols-2">
     <div class="metric-card accent-uab">
       <div class="metric-card-label">Cadència</div>
-      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">15-20 peces pilot · 8-12/mes recurrent</div>
-      <div class="metric-card-desc">Pilot 90 dies amb 3-4 peces per vertical. Després operació contínua amb cadència mensual sostinguda. Cada peça GEO-ready (schema, dades, naming consistent).</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">15-20 peces fase inicial · 8-12/mes recurrent</div>
+      <div class="metric-card-desc">Fase inicial amb 3-4 peces per vertical per validar. Després operació contínua amb cadència mensual sostinguda. Cada peça GEO-ready (schema, dades, naming consistent).</div>
     </div>
     <div class="metric-card accent-uab">
       <div class="metric-card-label">KPI principal</div>
       <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Senyals d'autoritat i citabilitat</div>
-      <div class="metric-card-desc">Mesura via re-auditoria GEORadar a T+90: aparició de peces en respostes ChatGPT/Gemini, augment de fonts citades, canvi de narrativa als pains 1-7.</div>
+      <div class="metric-card-desc">Mesura via re-auditoria GEORadar: aparició de peces en respostes ChatGPT/Gemini, augment de fonts citades, canvi de narrativa als pains 1-7.</div>
     </div>
   </div>
 
@@ -1039,7 +1050,7 @@
   </p>
 
   <div class="callout">
-    <p><strong>Per què operació contínua i no pilot tancat.</strong> El posicionament GEO no és estàtic. Els LLMs es re-entrenen, indexen contingut nou de forma constant i ajusten la jerarquia de fonts. Una operació tancada de 90 dies pot validar el model, però el guany es dilueix sense renovació. La proposta és <strong>pilot 90 dies + operació contínua</strong>: el primer trimestre valida verticals i KPIs; a partir del mes 4, cadència sostinguda de 8-12 peces/mes, expansió a verticals nous (sostenibilitat, internacionalització, postgrau) i mesura trimestral.</p>
+    <p><strong>Per què operació contínua i no acció puntual.</strong> El posicionament GEO no és estàtic. Els LLMs es re-entrenen, indexen contingut nou de forma constant i ajusten la jerarquia de fonts. Una operació tancada pot validar el model, però el guany es dilueix sense renovació. La proposta és <strong>fase inicial + operació contínua</strong>: una primera fase valida verticals i KPIs; després, cadència sostinguda de 8-12 peces/mes, expansió a verticals nous (sostenibilitat, internacionalització, postgrau) i mesura periòdica.</p>
   </div>
 
   <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>13</span></div>
@@ -1138,13 +1149,13 @@
   <div class="metric-grid cols-2">
     <div class="metric-card accent-uab">
       <div class="metric-card-label">Volum pilot</div>
-      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">25-35 intervencions / 90 dies</div>
+      <div style="font-size:11.5px; font-weight:700; margin-top:4px;">25-35 intervencions inicials</div>
       <div class="metric-card-desc">2 AMAs, 15-20 threads de resposta orgànica, 5-8 posts d'experiència, monitorització setmanal. Coordinació 498 + xarxa de col·laboradors UAB.</div>
     </div>
     <div class="metric-card accent-uab">
       <div class="metric-card-label">KPI principal</div>
       <div style="font-size:11.5px; font-weight:700; margin-top:4px;">Karma + cita en LLMs</div>
-      <div class="metric-card-desc">Threads amb karma alt (visibilitat de cara als crawlers), i aparició de Reddit com a font citada per ChatGPT/Gemini quan es repeteix l'auditoria a T+90.</div>
+      <div class="metric-card-desc">Threads amb karma alt (visibilitat de cara als crawlers), i aparició de Reddit com a font citada per ChatGPT/Gemini en futures auditories.</div>
     </div>
   </div>
 
@@ -1157,32 +1168,114 @@
 
 
 <!-- ================================================================ -->
-<!-- PAGE 15: TANCAMENT                                                -->
+<!-- PAGE 15: SINTESI (1/2)                                            -->
 <!-- ================================================================ -->
 <div class="page" id="roadmap">
-  <div class="section-header"><span class="section-number">15</span><h2 class="section-title">Tancament</h2></div>
+  <div class="section-header"><span class="section-number">15</span><h2 class="section-title">Síntesi d'accions</h2></div>
 
-  <p style="font-size:13px; line-height:1.75; color:var(--text-secondary); margin-bottom:16px;">
-    Aquest document recull el pla complet d'accions que es deriven de l'auditoria GEORadar. És, deliberadament, un pla extens: hi conviuen <strong>accions de naturalesa molt diferent</strong>, des de publicacions internes que es poden activar en pocs dies fins a iniciatives editorials i de comunitat que demanen coordinació sostinguda al llarg del temps.
+  <p style="font-size:12.5px; line-height:1.7; color:var(--text-secondary); margin-bottom:12px;">
+    Resum de totes les accions del pla, agrupades pel pain al qual responen i amb la modalitat d'execució recomanada. La proposta és <strong>modular</strong>: la UAB pot prioritzar les accions que es vegi capaç d'abordar amb autonomia i comptar amb nosaltres per a la resta. Cada peça és independent.
   </p>
 
-  <p style="font-size:13px; line-height:1.75; color:var(--text-secondary); margin-bottom:16px;">
-    Algunes peces són abordables amb autonomia per l'equip de la UAB (publicar dades ja disponibles, ampliar pàgines existents, ajustar metadades, crear clusters de contingut). Altres requereixen acompanyament metodològic: schema, JSON-LD, optimització d'indexació, posicionament narratiu, plans de fonts. I els tres projectes transversals (Wikipedia, Content Farm i Reddit) tenen, pel seu caràcter editorial i de coordinació externa, una dinàmica de partner sostingut.
-  </p>
-
-  <p style="font-size:13px; line-height:1.75; color:var(--text-secondary); margin-bottom:16px;">
-    La proposta és, per tant, <strong>modular</strong>. La UAB pot prendre les accions que es vegi capaç d'abordar internament i comptar amb nosaltres per a la resta. Cada peça del pla és independent i es pot activar de forma autònoma. Un cop tinguem definit l'abast del que voldríeu treballar plegats, prepararem una proposta econòmica detallada amb fases, lliurables i sistema de mesura.
-  </p>
-
-  <div class="callout" style="margin-top:24px;">
-    <p>Quedem a disposició per resoldre dubtes, ajustar prioritats i definir el detall operatiu de les peces que decidiu activar amb el nostre suport.</p>
+  <div class="synthesis-legend">
+    <div class="synthesis-legend-item"><span class="label-tag grey">UAB</span> <span>execució interna amb autonomia (publicació de dades, inventaris, producció pròpia)</span></div>
+    <div class="synthesis-legend-item"><span class="label-tag uab">Amb 498</span> <span>execució acompanyada (schema, optimització GEO, redacció estratègica, projectes transversals)</span></div>
   </div>
 
-  <div style="text-align:center; margin-top:32px; padding-top:14px; border-top:1px solid var(--border);">
+  <table class="synthesis-table">
+    <thead>
+      <tr><th>Acció</th><th>Execució</th></tr>
+    </thead>
+    <tbody>
+
+      <tr class="group-row"><td colspan="2">P1 · Empleabilitat (ENI)</td></tr>
+      <tr><td><span class="action-ref">1.1</span>Publicar dades de l'Observatori d'Inserció a uab.cat</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">1.2</span>Pàgina <code>/empleabilitat-dades</code> amb taula filtrable i JSON-LD Dataset</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">1.3</span>FAQs amb xifres concretes (FAQPage schema)</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">1.4</span>Auditar dades disponibles a l'Observatori</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">1.5</span>Content Farm: comparatives "% inserció UAB vs sectorial"</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+      <tr class="group-row"><td colspan="2">P2 · Inclusivitat (gap a Gemini)</td></tr>
+      <tr><td><span class="action-ref">2.1</span>Cluster de contingut "indirecte" a uab.cat (3 pàgines)</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">2.2</span>Structured data FAQPage + EducationalOrganization</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">2.3</span>Content Farm: secció famílies i orientació</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">2.4</span>Reddit: presència en subreddits de famílies i suport</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+      <tr class="group-row"><td colspan="2">P3 · Sincrotró ALBA</td></tr>
+      <tr><td><span class="action-ref">3.1</span>Pàgina <code>/sincrotro-alba</code> a uab.cat</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">3.2</span>JSON-LD ResearchOrganization vinculant ALBA ↔ UAB</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">3.3</span>Secció ALBA a Wikipedia (CA / ES / EN)</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">3.4</span>Cas d'estudi anual "UAB + ALBA"</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">3.5</span>Content Farm: divulgació científica ALBA-UAB</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">3.6</span>Reddit: AMAs amb investigadors UAB-ALBA</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+      <tr class="group-row"><td colspan="2">P4 · Naming oficial</td></tr>
+      <tr><td><span class="action-ref">4.1</span>Ampliar Wikipedia CA i EN fins a paritat amb ES</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">4.2</span>Registrar "L'Autònoma" com a nom alternatiu oficial</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">4.3</span>Auditar comunicació institucional (consistència del naming)</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">4.4</span>Pla de fonts: identificar les 20 top de ChatGPT</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">4.5</span>Content Farm: normalitzar "L'Autònoma" i "Universitat" en castellà</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+    </tbody>
+  </table>
+
+  <p style="font-size:10px; color:var(--text-tertiary); text-align:right; margin-top:10px; font-style:italic;">Continua a la pàgina següent →</p>
+
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>15</span></div>
+</div>
+
+
+<!-- ================================================================ -->
+<!-- PAGE 16: SINTESI (2/2)                                            -->
+<!-- ================================================================ -->
+<div class="page" id="sintesi-2">
+  <div class="section-header"><span class="section-number">15</span><h2 class="section-title">Síntesi d'accions <span style="font-size:13px; color:var(--text-tertiary); font-weight:600;">· continuació</span></h2></div>
+
+  <table class="synthesis-table">
+    <thead>
+      <tr><th>Acció</th><th>Execució</th></tr>
+    </thead>
+    <tbody>
+
+      <tr class="group-row"><td colspan="2">P5 · Microcredencials / UOC</td></tr>
+      <tr><td><span class="action-ref">5.1</span>Auditar indexació de microcredencials a Gemini</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">5.2</span>JSON-LD Course + EducationalOccupationalProgram</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">5.3</span>Optimitzar format de les pàgines de microcredencials</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">5.4</span>Posicionament narratiu UAB vs UOC</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">5.5</span>Content Farm: comparatives microcredencials UAB vs UOC</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+      <tr class="group-row"><td colspan="2">P6 · Funnel awareness</td></tr>
+      <tr><td><span class="action-ref">6.1</span>Hub <code>/per-que-uab</code> amb guies en llenguatge fàcil</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">6.2</span>Articles "Universitats a Catalunya / a Espanya" autoreferencials</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">6.3</span>Pàgina aterratge "Universitat de Barcelona": territori metropolità</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">6.4</span>Content Farm: secció guies obvi awareness</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">6.5</span>Reddit: massa crítica de mencions en threads d'orientació</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+      <tr class="group-row"><td colspan="2">P7 · Percepció de llunyania</td></tr>
+      <tr><td><span class="action-ref">7.1</span>Pàgina <code>/com-arribar</code> amb dades concretes de mobilitat</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">7.2</span>Vídeo tour campus + Vila Universitària</td><td><span class="label-tag grey">UAB</span></td></tr>
+      <tr><td><span class="action-ref">7.3</span>Reformulació de metadades i opening de pàgines clau</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">7.4</span>Reframing narratiu coordinat (premsa, Wikipedia, comunicació)</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">7.5</span>Content Farm: comparatives de mobilitat amb altres campus</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">7.6</span>Reddit: testimonials de mobilitat i vida de campus</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+      <tr class="group-row"><td colspan="2">Projectes transversals</td></tr>
+      <tr><td><span class="action-ref">T1</span>Wikipedia (font #1 de ChatGPT, 1.544 cites)</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">T2</span>Content Farm (contingut distribuït en propietats externes)</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+      <tr><td><span class="action-ref">T3</span>Reddit (veu de comunitat per a LLMs)</td><td><span class="label-tag uab">Amb 498</span></td></tr>
+
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top:18px;">
+    <p>Un cop la UAB hagi pres decisió sobre quines accions assumeix internament i quines vol treballar amb nosaltres, prepararem una proposta econòmica detallada per a l'abast acordat, amb fases, lliurables i sistema de mesura. Quedem a disposició per resoldre dubtes i ajustar prioritats abans d'aquest pas.</p>
+  </div>
+
+  <div style="text-align:center; margin-top:24px; padding-top:14px; border-top:1px solid var(--border);">
     <p style="font-size:10px; color:var(--text-tertiary);">GEORadar by 498 Advisory Services · 2026</p>
   </div>
 
-  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>15</span></div>
+  <div class="page-footer"><span>UAB · Pla d'acció GEO · Maig 2026</span><span>16</span></div>
 </div>
 
 </div><!-- /report -->
